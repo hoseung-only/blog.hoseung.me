@@ -2,7 +2,7 @@ import _ from "lodash";
 import { ComponentType } from "react";
 import { RouteComponentProps } from "react-router";
 
-type PageName = "";
+type PageName = "Main" | "PostShow";
 
 export interface RouteSpec {
   name: PageName;
