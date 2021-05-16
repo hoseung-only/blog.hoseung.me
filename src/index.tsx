@@ -1,6 +1,3 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <div></div>,
-  document.getElementById('root')
-);
+ReactDOM.render(<div></div>, document.getElementById("root"));
