@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
-import { routes, RouteSpec, Paths } from "./routeSpec";
+import { routes, RouteSpec } from "./routeSpec";
 
 export function RouteSwitch() {
   return (
