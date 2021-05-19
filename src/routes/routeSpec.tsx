@@ -2,6 +2,8 @@ import _ from "lodash";
 import { ComponentType } from "react";
 import { RouteComponentProps } from "react-router";
 
+import { Main, MainPlaceholder } from "../containers/Main";
+
 type PageName = "Main" | "PostShow";
 
 export interface RouteSpec {
@@ -12,7 +14,15 @@ export interface RouteSpec {
   placeholder?: ComponentType<any>;
 }
 
-export const routes: RouteSpec[] = [];
+export const routes: RouteSpec[] = [
+  {
+    name: "Main",
+    path: "/",
+    exact: true,
+    component: Main,
+    placeholder: MainPlaceholder,
+  },
+];
 
 export const Paths = _.chain(routes)
   .map(({ name, path }) => [name, path] as const)
