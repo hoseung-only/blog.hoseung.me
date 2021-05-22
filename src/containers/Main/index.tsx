@@ -1,13 +1,11 @@
-import styled from "styled-components";
+import { PlatformSwitch } from "../../components/PlatformSwitch";
+import { Main as Desktop, MainPlaceholder as DesktopPlaceholder } from "./Desktop";
+import { Main as Mobile, MainPlaceholder as MobilePlaceholder } from "./Mobile";
 
 export function Main() {
-  return <S.Container></S.Container>;
+  return <PlatformSwitch desktop={() => <Desktop />} mobile={() => <Mobile />} />;
 }
 
 export function MainPlaceholder() {
-  return <S.Container></S.Container>;
+  return <PlatformSwitch desktop={() => <DesktopPlaceholder />} mobile={() => <MobilePlaceholder />} />;
 }
-
-const S = {
-  Container: styled.div``,
-};
