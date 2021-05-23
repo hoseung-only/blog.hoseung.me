@@ -1,4 +1,4 @@
-import { usePlatform, Platform } from "../../hooks/usePlatform";
+import { usePlatform, Platform } from "../../../hooks/usePlatform";
 
 export function PlatformSwitch({ desktop, mobile }: { desktop(): JSX.Element; mobile(): JSX.Element }) {
   const platform = usePlatform();
