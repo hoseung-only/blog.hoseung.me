@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export function Main() {
-  return <S.Container>데스크탑</S.Container>;
+  return <S.Container></S.Container>;
 }
 
 export function MainPlaceholder() {

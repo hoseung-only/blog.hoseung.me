@@ -1,4 +1,4 @@
-import { PlatformSwitch } from "../../components/PlatformSwitch";
+import { PlatformSwitch } from "../../components/Shared/PlatformSwitch";
 import { Main as Desktop, MainPlaceholder as DesktopPlaceholder } from "./Desktop";
 import { Main as Mobile, MainPlaceholder as MobilePlaceholder } from "./Mobile";
 
