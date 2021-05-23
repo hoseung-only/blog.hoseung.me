@@ -1,9 +1,13 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { SWRConfig } from "swr";
 
 import { APIClientContextProvider } from "./contexts/APIClient";
+
+import { Header as DesktopHeader } from "./components/Desktop/Header";
+import { Header as MobileHeader } from "./components/Mobile/Header";
+import { PlatformSwitch } from "./components/Shared/PlatformSwitch";
 
 import { RouteSwitch } from "./routes/RouteSwitch";
 
@@ -31,10 +35,36 @@ const GlobalStyle = createGlobalStyle`
       height: 100%;
 
       display: flex;
-      flex-direction: column;
+      justify-content: center;
     }
   }
 `;
+
+const S = {
+  DesktopContainer: styled.div`
+    width: 100%;
+    max-width: 1024px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 20px;
+
+    box-sizing: border-box;
+  `,
+  MobileContainer: styled.div`
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+  `,
+};
 
 ReactDOM.render(
   <BrowserRouter>
@@ -48,7 +78,20 @@ ReactDOM.render(
     >
       <APIClientContextProvider>
         <GlobalStyle />
-        <RouteSwitch />
+        <PlatformSwitch
+          desktop={() => (
+            <S.DesktopContainer>
+              <DesktopHeader />
+              <RouteSwitch />
+            </S.DesktopContainer>
+          )}
+          mobile={() => (
+            <S.MobileContainer>
+              <MobileHeader />
+              <RouteSwitch />
+            </S.MobileContainer>
+          )}
+        />
       </APIClientContextProvider>
     </SWRConfig>
   </BrowserRouter>,
