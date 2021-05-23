@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import useSWR, { SWRConfiguration, SWRResponse, useSWRInfinite, SWRInfiniteConfiguration } from "swr";
+import useSWR, { SWRConfiguration, useSWRInfinite, SWRInfiniteConfiguration } from "swr";
 import { Client } from "@hoseung-only/blog-api-client";
 
 import { useAPIClient } from "../contexts/APIClient";
@@ -11,26 +11,17 @@ type OperationResult<O extends OperationId> = ReturnType<Client[O]> extends Prom
 type QueryResult<O extends OperationId, C> = C extends { suspense: true }
   ? {
       data: OperationResult<O>;
-      mutate: SWRResponse<OperationResult<O>, any>["mutate"];
-      refetch: SWRResponse<OperationResult<O>, any>["revalidate"];
     }
   : {
       data?: OperationResult<O>;
-      mutate: SWRResponse<OperationResult<O>, any>["mutate"];
-      refetch: SWRResponse<OperationResult<O>, any>["revalidate"];
     };
 
-type InfiniteQueryResult<O extends OperationId, C> = (C extends { suspense: true }
-  ? {
-      data: OperationResult<O> extends { data: infer R } ? R : unknown;
-      mutate: SWRResponse<OperationResult<O>, any>["mutate"];
-      refetch: SWRResponse<OperationResult<O>, any>["revalidate"];
-    }
-  : {
-      data?: OperationResult<O> extends { data: infer R } ? R : unknown;
-      mutate: SWRResponse<OperationResult<O>, any>["mutate"];
-      refetch: SWRResponse<OperationResult<O>, any>["revalidate"];
-    }) & { loadMore: (() => void) | null };
+type InfiniteQueryResult<O extends OperationId> = {
+  data: OperationResult<O> extends { data: infer R } ? R : unknown;
+  loadMore: (() => void) | null;
+  isLoading: boolean;
+  canLoadMore: boolean;
+};
 
 export function useAPIQuery<O extends OperationId, C extends SWRConfiguration>(
   operationId: O,
@@ -55,12 +46,10 @@ export function useAPIQuery<O extends OperationId, C extends SWRConfiguration>(
 
   return {
     data: result.data,
-    mutate: result.mutate,
-    refetch: result.revalidate,
   } as QueryResult<O, C>;
 }
 
-export function useAPIPaginatedQuery<O extends OperationId, C extends SWRInfiniteConfiguration>(
+export function usePaginatedAPIQuery<O extends OperationId, C extends SWRInfiniteConfiguration>(
   operationId: O,
   params: OperationParameters<O>,
   options?: C
@@ -93,7 +82,7 @@ export function useAPIPaginatedQuery<O extends OperationId, C extends SWRInfinit
     options
   );
 
-  const data = useMemo(() => result.data?.flatMap(({ data }: any) => data), [result]);
+  const data = useMemo(() => result.data?.flatMap(({ data }: any) => data) ?? [], [result]);
 
   const loadMore = useMemo(() => {
     return canLoadMore && !result.isValidating
@@ -105,8 +94,8 @@ export function useAPIPaginatedQuery<O extends OperationId, C extends SWRInfinit
 
   return {
     data,
-    mutate: result.mutate,
-    refetch: result.revalidate,
     loadMore,
-  } as InfiniteQueryResult<O, C>;
+    isLoading: result.isValidating,
+    canLoadMore,
+  } as InfiniteQueryResult<O>;
 }
