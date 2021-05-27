@@ -30,7 +30,7 @@ const S = {
     align-items: center;
 
     > .link-list {
-      height: 22px;
+      height: 25px;
 
       display: flex;
       align-items: center;
@@ -49,8 +49,8 @@ const S = {
         }
 
         > .icon {
-          width: 22px;
-          height: 22px;
+          width: 25px;
+          height: 25px;
         }
       }
     }
