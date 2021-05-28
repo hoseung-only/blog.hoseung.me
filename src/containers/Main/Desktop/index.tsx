@@ -1,7 +1,18 @@
 import styled from "styled-components";
 
+import { usePosts } from "../hooks/usePosts";
+
 export function Main() {
-  return <S.Container></S.Container>;
+  const { posts, loadingTriggerElement } = usePosts();
+
+  return (
+    <S.Container>
+      {posts.map((post) => (
+        <div>{post.title}</div>
+      ))}
+      {loadingTriggerElement}
+    </S.Container>
+  );
 }
 
 export function MainPlaceholder() {
