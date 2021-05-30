@@ -30,6 +30,8 @@ const S = {
     flex-direction: column;
     justify-content: center;
 
+    border-bottom: 1px solid ${Color.Grey100};
+
     > .title {
       margin-bottom: 12px;
     }
