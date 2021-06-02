@@ -19,6 +19,6 @@ export function usePosts() {
     loadMore,
     isLoading,
     canLoadMore,
-    loadingTriggerElement: loadMore !== null ? <div ref={ref} /> : null,
+    loadingTriggerRef: loadMore !== null ? ref : null,
   };
 }
