@@ -23,14 +23,10 @@ export const Skeleton = {
     ${animation}
   `,
   Text: styled.div`
-    height: auto;
-
-    line-height: inherit;
+    ${animation}
 
     &:empty:before {
       content: "\\00a0";
     }
-
-    ${animation}
   `,
 };
