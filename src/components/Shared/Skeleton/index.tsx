@@ -5,13 +5,13 @@ import { Color } from "../../../constants/color";
 const animation = css`
   @keyframes loading {
     0% {
-      background-color: ${Color.Grey50};
-    }
-    50% {
       background-color: ${Color.Grey10};
     }
-    100% {
+    50% {
       background-color: ${Color.Grey50};
+    }
+    100% {
+      background-color: ${Color.Grey10};
     }
   }
 
