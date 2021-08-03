@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Models } from "@hoseung-only/blog-api-client";
 
@@ -9,12 +10,10 @@ import { Color } from "../../../constants/color";
 
 export function PostListItem({ post }: { post: Models.PostShow }) {
   return (
-    <S.Container href="">
-      {post.coverImageURL && (
-        <ResponsiveBlock width={4} height={3}>
-          <img className="image" src={post.coverImageURL} alt="" />
-        </ResponsiveBlock>
-      )}
+    <S.Container to={`/posts/${post.id}`}>
+      <ResponsiveBlock width={4} height={3}>
+        <img className="image" src={post.coverImageURL} alt="" />
+      </ResponsiveBlock>
       <div className="information">
         <Label.B20 className="title">{post.title}</Label.B20>
         <Label.R14 className="summary">{post.summary}</Label.R14>
@@ -25,7 +24,7 @@ export function PostListItem({ post }: { post: Models.PostShow }) {
 }
 
 const S = {
-  Container: styled.a`
+  Container: styled(Link)`
     width: 100%;
     height: 100%;
 
