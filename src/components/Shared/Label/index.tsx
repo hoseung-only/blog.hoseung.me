@@ -13,6 +13,18 @@ export const Label = {
     font-size: 12px;
     font-weight: 700;
   `,
+  R14: styled.div`
+    font-size: 14px;
+    font-weight: 300;
+  `,
+  M14: styled.div`
+    font-size: 14px;
+    font-weight: 500;
+  `,
+  B14: styled.div`
+    font-size: 14px;
+    font-weight: 700;
+  `,
   R16: styled.div`
     font-size: 16px;
     font-weight: 300;
