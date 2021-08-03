@@ -16,7 +16,7 @@ import { Color } from "./constants/color";
 const GlobalStyle = createGlobalStyle`
   html, body {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
 
     padding: 0;
     margin: 0;
@@ -32,9 +32,21 @@ const GlobalStyle = createGlobalStyle`
       font-style: normal;
     }
 
+    ul {
+      margin: 0;
+      padding: 0;
+  
+      list-style: none;
+    }
+
+    a {
+      color: ${Color.Black100};
+      text-decoration: none;
+    }
+
     > #root {
       width: 100%;
-      height: 100%;
+      min-height: 100vh;
 
       display: flex;
       justify-content: center;
