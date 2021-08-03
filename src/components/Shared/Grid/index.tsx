@@ -42,13 +42,14 @@ const S = {
       width: calc((100% - ${columnMargin * (columnSize - 1)}px) / ${columnSize});
 
       margin-right: ${columnMargin}px;
+      margin-bottom: ${rowMargin}px;
 
       &:nth-child(${columnSize}n) {
         margin-right: 0;
       }
 
-      &:nth-child(-n + ${columnSize}) {
-        margin-bottom: ${rowMargin}px;
+      &:nth-last-child(-n + ${columnSize}):nth-child(${columnSize}n) ~ & {
+        margin-bottom: 0;
       }
     `}
   `,
