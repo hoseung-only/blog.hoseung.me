@@ -55,7 +55,7 @@ type PaginatedOperationId = {
 
 export function usePaginatedAPIQuery<O extends PaginatedOperationId, C extends SWRInfiniteConfiguration>(
   operationId: O,
-  params: OperationParameters<O>,
+  params: Omit<OperationParameters<O>, "cursor">,
   options?: C
 ) {
   const client = useAPIClient();
