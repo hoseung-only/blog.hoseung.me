@@ -11,6 +11,8 @@ import { PlatformSwitch } from "./components/Shared/PlatformSwitch";
 
 import { RouteSwitch } from "./routes/RouteSwitch";
 
+import { Color } from "./constants/color";
+
 const GlobalStyle = createGlobalStyle`
   html, body {
     width: 100%;
@@ -36,6 +38,8 @@ const GlobalStyle = createGlobalStyle`
 
       display: flex;
       justify-content: center;
+
+      background-color: ${Color.Grey10};
     }
   }
 `;
