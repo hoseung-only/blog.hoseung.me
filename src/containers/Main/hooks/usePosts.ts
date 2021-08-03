@@ -4,7 +4,11 @@ import { useInView } from "react-intersection-observer";
 import { usePaginatedAPIQuery } from "../../../hooks/useAPIQuery";
 
 export function usePosts() {
-  const { data, loadMore, isLoading, canLoadMore } = usePaginatedAPIQuery("getPostsByCursor", { count: 12 });
+  const { data, loadMore, isLoading, canLoadMore } = usePaginatedAPIQuery(
+    "getPostsByCursor",
+    { count: 12 },
+    { suspense: true }
+  );
 
   const { ref, inView } = useInView({ initialInView: false });
 
