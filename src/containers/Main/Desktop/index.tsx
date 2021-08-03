@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PostList } from "../../../components/Desktop/PostList";
+import { PostList, PostListPlaceholder } from "../../../components/Desktop/PostList";
 
 import { usePosts } from "../hooks/usePosts";
 
@@ -15,7 +15,11 @@ export function Main() {
 }
 
 export function MainPlaceholder() {
-  return <S.Container></S.Container>;
+  return (
+    <S.Container>
+      <PostListPlaceholder itemCount={12} />
+    </S.Container>
+  );
 }
 
 const S = {
