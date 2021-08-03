@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { PostList } from "../../../components/Desktop/PostList";
 
 import { usePosts } from "../hooks/usePosts";
 
@@ -7,9 +8,7 @@ export function Main() {
 
   return (
     <S.Container>
-      {posts.map((post) => (
-        <div>{post.title}</div>
-      ))}
+      <PostList posts={posts} />
       <div ref={loadingTriggerRef} />
     </S.Container>
   );
@@ -20,5 +19,14 @@ export function MainPlaceholder() {
 }
 
 const S = {
-  Container: styled.div``,
+  Container: styled.div`
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 40px 0;
+
+    box-sizing: border-box;
+  `,
 };
