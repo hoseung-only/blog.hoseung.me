@@ -6,7 +6,7 @@ import { useAPIClient } from "../contexts/APIClient";
 
 type OperationId = keyof Client;
 type OperationParameters<O extends OperationId> = Parameters<Client[O]>[0];
-type OperationResult<O extends OperationId> = ReturnType<Client[O]> extends Promise<infer R> ? R : unknown;
+type OperationResult<O extends OperationId> = ReturnType<Client[O]> extends Promise<infer R> ? R : never;
 
 type QueryResult<O extends OperationId, C> = C extends { suspense: true }
   ? {
@@ -17,7 +17,7 @@ type QueryResult<O extends OperationId, C> = C extends { suspense: true }
     };
 
 type InfiniteQueryResult<O extends OperationId> = {
-  data: OperationResult<O> extends { data: infer R } ? R : unknown;
+  data: OperationResult<O> extends { data: infer R } ? R : never;
   loadMore: (() => void) | null;
   isLoading: boolean;
   canLoadMore: boolean;
@@ -49,7 +49,11 @@ export function useAPIQuery<O extends OperationId, C extends SWRConfiguration>(
   } as QueryResult<O, C>;
 }
 
-export function usePaginatedAPIQuery<O extends OperationId, C extends SWRInfiniteConfiguration>(
+type PaginatedOperationId = {
+  [K in OperationId]: OperationResult<K> extends { nextCursor: number | null } ? K : never;
+}[OperationId];
+
+export function usePaginatedAPIQuery<O extends PaginatedOperationId, C extends SWRInfiniteConfiguration>(
   operationId: O,
   params: OperationParameters<O>,
   options?: C
