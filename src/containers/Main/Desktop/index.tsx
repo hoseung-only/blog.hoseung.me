@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
