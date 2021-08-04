@@ -61,4 +61,40 @@ export const Label = {
     font-size: 24px;
     font-weight: 700;
   `,
+  R32: styled.div`
+    font-size: 32px;
+    font-weight: 300;
+  `,
+  M32: styled.div`
+    font-size: 32px;
+    font-weight: 500;
+  `,
+  B32: styled.div`
+    font-size: 32px;
+    font-weight: 700;
+  `,
+  R36: styled.div`
+    font-size: 36px;
+    font-weight: 300;
+  `,
+  M36: styled.div`
+    font-size: 36px;
+    font-weight: 500;
+  `,
+  B36: styled.div`
+    font-size: 36px;
+    font-weight: 700;
+  `,
+  R42: styled.div`
+    font-size: 42px;
+    font-weight: 300;
+  `,
+  M42: styled.div`
+    font-size: 42px;
+    font-weight: 500;
+  `,
+  B42: styled.div`
+    font-size: 42px;
+    font-weight: 700;
+  `,
 };
