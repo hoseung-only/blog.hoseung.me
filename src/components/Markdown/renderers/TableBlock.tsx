@@ -9,6 +9,8 @@ export function TableBlock({ children }: { children: ReactNode }) {
 
 const S = {
   Container: styled.table`
+    width: fit-content;
+
     border-spacing: 0;
 
     > thead {
