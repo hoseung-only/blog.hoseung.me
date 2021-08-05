@@ -191,7 +191,7 @@ const S = {
     ${Media.Mobile} {
       > .information {
         > .title {
-          font-size: 2rem;
+          font-size: 2.2rem;
 
           > ${Skeleton.Text} {
             width: 100px;
@@ -199,7 +199,7 @@ const S = {
         }
 
         > .summary {
-          font-size: 1.4rem;
+          font-size: 1.8rem;
           color: ${Color.Black50};
 
           > ${Skeleton.Text} {
@@ -208,7 +208,7 @@ const S = {
         }
 
         > .created-at {
-          font-size: 1.2rem;
+          font-size: 1.5rem;
           color: ${Color.Grey400};
 
           > ${Skeleton.Text} {
