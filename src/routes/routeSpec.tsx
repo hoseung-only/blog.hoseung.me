@@ -3,8 +3,9 @@ import { RouteComponentProps } from "react-router";
 
 import { Main, MainPlaceholder } from "../containers/Main";
 import { PostShow, PostShowPlaceholder } from "../containers/PostShow";
+import { Category, CategoryPlaceholder } from "../containers/Category";
 
-type PageName = "Main" | "PostShow";
+type PageName = "Main" | "PostShow" | "Category";
 
 export interface RouteSpec {
   name: PageName;
@@ -28,5 +29,12 @@ export const routes: RouteSpec[] = [
     exact: true,
     component: PostShow,
     placeholder: PostShowPlaceholder,
+  },
+  {
+    name: "Category",
+    path: "/categories/:categoryId/posts",
+    exact: true,
+    component: Category,
+    placeholder: CategoryPlaceholder,
   },
 ];
