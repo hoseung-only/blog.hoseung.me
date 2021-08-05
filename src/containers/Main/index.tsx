@@ -136,13 +136,17 @@ const S = {
 
           transition: color 0.2s, box-shadow 0.2s;
 
-          &:hover {
-            color: ${Color.Blue200};
-          }
-
           &.current {
             color: ${Color.Blue300};
           }
+        }
+      }
+    }
+
+    ${Media.Desktop} {
+      > .tabs > li > .link {
+        &:hover {
+          color: ${Color.Blue200};
         }
       }
     }

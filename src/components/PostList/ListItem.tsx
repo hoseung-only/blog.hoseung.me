@@ -58,12 +58,6 @@ const S = {
 
     transform: translateY(0);
 
-    &:hover {
-      > ${ResponsiveBlock} > .content > .image {
-        transform: scale(1.1);
-      }
-    }
-
     > ${ResponsiveBlock} > .content {
       width: 100%;
       height: 100%;
@@ -75,8 +69,6 @@ const S = {
       > .image {
         width: 100%;
         height: 100%;
-
-        margin-right: 10px;
 
         object-fit: cover;
 
@@ -125,6 +117,14 @@ const S = {
 
         > ${Skeleton.Text} {
           width: 70px;
+        }
+      }
+    }
+
+    ${Media.Desktop} {
+      &:hover {
+        > ${ResponsiveBlock} > .content > .image {
+          transform: scale(1.1);
         }
       }
     }
