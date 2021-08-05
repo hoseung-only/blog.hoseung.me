@@ -114,7 +114,7 @@ const S = {
       box-sizing: border-box;
 
       > * {
-        word-break: break-all;
+        word-break: break-word;
       }
 
       > .title {
