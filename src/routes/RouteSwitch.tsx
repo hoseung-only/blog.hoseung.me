@@ -1,9 +1,12 @@
 import { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
+import { useScrollToTop } from "../hooks/useScrollToTop";
+
 import { routes, RouteSpec } from "./routeSpec";
 
 export function RouteSwitch() {
+  useScrollToTop();
   return (
     <Switch>
       {routes.map((routeSpec) => (
