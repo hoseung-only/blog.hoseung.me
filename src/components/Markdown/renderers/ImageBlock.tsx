@@ -6,7 +6,11 @@ export function ImageBlock(props: any) {
 
 const S = {
   Container: styled.img`
-    width: 100%;
+    max-width: 100%;
+
+    display: block;
+
+    margin: 0 auto;
 
     object-fit: contain;
   `,
