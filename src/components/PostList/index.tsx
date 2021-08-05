@@ -37,17 +37,19 @@ const S = {
     flex-flow: row wrap;
   `,
   GridItem: styled.li`
-    width: calc((100% - (30px * 3)) / 4);
+    ${Media.Desktop} {
+      width: calc((100% - (30px * 3)) / 4);
 
-    margin-right: 30px;
-    margin-bottom: 30px;
+      margin-right: 30px;
+      margin-bottom: 30px;
 
-    &:nth-child(4n) {
-      margin-right: 0;
-    }
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
 
-    &:nth-last-child(-n + 4):nth-child(4n) ~ & {
-      margin-bottom: 0;
+      &:nth-last-child(-n + 4):nth-child(4n) ~ & {
+        margin-bottom: 0;
+      }
     }
 
     ${Media.Tablet} {
@@ -55,6 +57,14 @@ const S = {
 
       margin-right: 20px;
       margin-bottom: 20px;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      &:nth-last-child(-n + 3):nth-child(3n) ~ & {
+        margin-bottom: 0;
+      }
     }
 
     ${Media.Mobile} {
@@ -62,6 +72,14 @@ const S = {
 
       margin-right: 10px;
       margin-bottom: 20px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+
+      &:nth-last-child(-n + 2):nth-child(2n) ~ & {
+        margin-bottom: 0;
+      }
     }
   `,
 };
