@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Models } from "@hoseung-only/blog-api-client";
 
 import { PostListItem, PostListItemPlaceholder } from "./ListItem";
+
 import { Media } from "../../constants/media";
 
 export function PostList({ posts }: { posts: Models.PostShow[] }) {
