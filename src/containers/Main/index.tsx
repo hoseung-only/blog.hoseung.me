@@ -145,7 +145,7 @@ const S = {
 
     ${Media.Desktop} {
       > .tabs > li > .link {
-        &:hover {
+        &:hover:not(.current) {
           color: ${Color.Blue200};
         }
       }
