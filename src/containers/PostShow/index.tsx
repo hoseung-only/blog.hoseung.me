@@ -19,9 +19,11 @@ export function PostShow() {
       <OG title={post.title} description={post.summary} image={post.coverImageURL} />
       <S.Container>
         <Header title={post.title} createdAt={post.createdAt} />
-        <ResponsiveBlock width={4} height={2}>
-          <img className="cover-image" src={post.coverImageURL} alt="" />
-        </ResponsiveBlock>
+        {post.coverImageURL && (
+          <ResponsiveBlock width={4} height={2}>
+            <img className="cover-image" src={post.coverImageURL} alt="" />
+          </ResponsiveBlock>
+        )}
         <div className="content">
           <Markdown content={post.content} />
         </div>
@@ -57,19 +59,21 @@ const S = {
 
     box-sizing: border-box;
 
-    > ${ResponsiveBlock} > .content {
-      > .cover-image {
-        width: 100%;
-        height: 100%;
+    > ${ResponsiveBlock} {
+      margin-bottom: 40px;
 
-        object-fit: contain;
+      > .content {
+        > .cover-image {
+          width: 100%;
+          height: 100%;
+
+          object-fit: contain;
+        }
       }
     }
 
     > .content {
       width: 100%;
-
-      margin-top: 40px;
     }
   `,
 };
