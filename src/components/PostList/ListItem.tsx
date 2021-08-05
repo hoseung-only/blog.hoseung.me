@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Models } from "@hoseung-only/blog-api-client";
 
-import { ResponsiveBlock } from "../Shared/ResponsiveBlock";
-import { Skeleton } from "../Shared/Skeleton";
+import { ResponsiveBlock } from "../ResponsiveBlock";
+import { Font } from "../Font";
+import { Skeleton } from "../Skeleton";
 
 import { Color } from "../../constants/color";
 import { Media } from "../../constants/media";
@@ -16,9 +17,9 @@ export function PostListItem({ post }: { post: Models.PostShow }) {
         <img className="image" src={post.coverImageURL} alt="" />
       </ResponsiveBlock>
       <div className="information">
-        <div className="title">{post.title}</div>
-        <div className="summary">{post.summary}</div>
-        <div className="created-at">{dayjs(post.createdAt).format("YYYY.MM.DD")}</div>
+        <Font.Bold className="title">{post.title}</Font.Bold>
+        <Font.Regular className="summary">{post.summary}</Font.Regular>
+        <Font.Regular className="created-at">{dayjs(post.createdAt).format("YYYY.MM.DD")}</Font.Regular>
       </div>
     </S.Container>
   );
@@ -31,15 +32,15 @@ export function PostListItemPlaceholder() {
         <Skeleton.Rect style={{ width: "100%", height: "100%" }} />
       </ResponsiveBlock>
       <div className="information">
-        <div className="title">
-          <Skeleton.Text className="skeleton" />
-        </div>
-        <div className="summary">
-          <Skeleton.Text className="skeleton" />
-        </div>
-        <div className="created-at">
-          <Skeleton.Text className="skeleton" />
-        </div>
+        <Font.Bold className="title">
+          <Skeleton.Text />
+        </Font.Bold>
+        <Font.Regular className="summary">
+          <Skeleton.Text />
+        </Font.Regular>
+        <Font.Regular className="created-at">
+          <Skeleton.Text />
+        </Font.Regular>
       </div>
     </S.Container>
   );
@@ -100,7 +101,7 @@ const S = {
 
         font-size: 2rem;
 
-        > .skeleton {
+        > ${Skeleton.Text} {
           width: 100px;
         }
       }
@@ -111,7 +112,7 @@ const S = {
         font-size: 1.4rem;
         color: ${Color.Black50};
 
-        > .skeleton {
+        > ${Skeleton.Text} {
           width: 200px;
         }
       }
@@ -122,7 +123,7 @@ const S = {
         font-size: 1.2rem;
         color: ${Color.Grey400};
 
-        > .skeleton {
+        > ${Skeleton.Text} {
           width: 70px;
         }
       }
@@ -133,7 +134,7 @@ const S = {
         > .title {
           font-size: 2rem;
 
-          > .skeleton {
+          > ${Skeleton.Text} {
             width: 100px;
           }
         }
@@ -142,7 +143,7 @@ const S = {
           font-size: 1.4rem;
           color: ${Color.Black50};
 
-          > .skeleton {
+          > ${Skeleton.Text} {
             width: 150px;
           }
         }
@@ -151,7 +152,7 @@ const S = {
           font-size: 1.2rem;
           color: ${Color.Grey400};
 
-          > .skeleton {
+          > ${Skeleton.Text} {
             width: 70px;
           }
         }
@@ -163,7 +164,7 @@ const S = {
         > .title {
           font-size: 2rem;
 
-          > .skeleton {
+          > ${Skeleton.Text} {
             width: 100px;
           }
         }
@@ -172,7 +173,7 @@ const S = {
           font-size: 1.4rem;
           color: ${Color.Black50};
 
-          > .skeleton {
+          > ${Skeleton.Text} {
             width: 120px;
           }
         }
@@ -181,7 +182,7 @@ const S = {
           font-size: 1.2rem;
           color: ${Color.Grey400};
 
-          > .skeleton {
+          > ${Skeleton.Text} {
             width: 70px;
           }
         }
