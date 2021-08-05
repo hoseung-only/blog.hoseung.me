@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { Font } from "../../../components/Font";
 import { Skeleton } from "../../../components/Skeleton";
 
-import { Color } from "../../../constants/color";
 import { Media } from "../../../constants/media";
 
 import { useCategories } from "../hooks/useCategories";

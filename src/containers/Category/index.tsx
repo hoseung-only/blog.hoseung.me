@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Font } from "../../components/Font";
 
 import { useCategoryPosts } from "./hooks/useCategoryPosts";
 
+import { Font } from "../../components/Font";
 import { PostList, PostListPlaceholder } from "../../components/PostList";
 
 import { Color } from "../../constants/color";

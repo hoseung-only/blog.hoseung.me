@@ -2,12 +2,12 @@ import { NavLink, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
 import { OG } from "../../components/OG";
-import { withPlaceholder } from "../../components/withPlaceholder";
-import { CategorySection, CategorySectionPlaceholder } from "./components/CategorySection";
+import { Font } from "../../components/Font";
 import { PostSection, PostSectionPlaceholder } from "./components/PostSection";
+import { CategorySection, CategorySectionPlaceholder } from "./components/CategorySection";
+import { withPlaceholder } from "../../components/withPlaceholder";
 
 import { Color } from "../../constants/color";
-import { Font } from "../../components/Font";
 import { Media } from "../../constants/media";
 
 const tabs = [
