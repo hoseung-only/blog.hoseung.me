@@ -69,17 +69,10 @@ const S = {
     }
 
     ${Media.Mobile} {
-      width: calc((100% - 10px) / 2);
+      width: 100%;
 
-      margin-right: 10px;
-      margin-bottom: 20px;
-
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-
-      &:nth-last-child(-n + 2):nth-child(2n) ~ & {
-        margin-bottom: 0;
+      &:not(:last-child) {
+        margin-bottom: 20px;
       }
     }
   `,
