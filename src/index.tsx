@@ -5,13 +5,12 @@ import { SWRConfig } from "swr";
 
 import { APIClientContextProvider } from "./contexts/APIClient";
 
-import { Header as DesktopHeader } from "./components/Desktop/Header";
-import { Header as MobileHeader } from "./components/Mobile/Header";
-import { PlatformSwitch } from "./components/Shared/PlatformSwitch";
+import { Header } from "./components/Header";
 
 import { RouteSwitch } from "./routes/RouteSwitch";
 
 import { Color } from "./constants/color";
+import { Media } from "./constants/media";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -53,13 +52,17 @@ const GlobalStyle = createGlobalStyle`
 
       background-color: ${Color.Grey10};
     }
+
+    ${Media.Mobile} {
+      font-size: 8px;
+    }
   }
 `;
 
 const S = {
-  DesktopContainer: styled.div`
+  Container: styled.div`
     width: 100%;
-    max-width: 1024px;
+    max-width: 1440px;
     height: 100%;
 
     display: flex;
@@ -68,17 +71,12 @@ const S = {
     padding: 0 20px;
 
     box-sizing: border-box;
-  `,
-  MobileContainer: styled.div`
-    width: 100%;
-    height: 100%;
 
-    display: flex;
-    flex-direction: column;
+    ${Media.Mobile} {
+      max-width: 100%;
 
-    padding: 0 16px;
-
-    box-sizing: border-box;
+      padding: 0 16px;
+    }
   `,
 };
 
@@ -94,20 +92,10 @@ ReactDOM.render(
     >
       <APIClientContextProvider>
         <GlobalStyle />
-        <PlatformSwitch
-          desktop={() => (
-            <S.DesktopContainer>
-              <DesktopHeader />
-              <RouteSwitch />
-            </S.DesktopContainer>
-          )}
-          mobile={() => (
-            <S.MobileContainer>
-              <MobileHeader />
-              <RouteSwitch />
-            </S.MobileContainer>
-          )}
-        />
+        <S.Container>
+          <Header />
+          <RouteSwitch />
+        </S.Container>
       </APIClientContextProvider>
     </SWRConfig>
   </BrowserRouter>,
