@@ -2,6 +2,7 @@ import { NavLink, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
 import { OG } from "../../components/OG";
+import { Profile } from "./components/Profile";
 import { Font } from "../../components/Font";
 import { PostSection, PostSectionPlaceholder } from "./components/PostSection";
 import { CategorySection, CategorySectionPlaceholder } from "./components/CategorySection";
@@ -30,6 +31,7 @@ export function Main() {
     <>
       <OG />
       <S.Container>
+        <Profile />
         <ul className="tabs">
           {tabs.map((tab, index) => (
             <li key={index}>
