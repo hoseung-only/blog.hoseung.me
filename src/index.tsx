@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
 
-    font-size: 20px;
+    font-size: 10px;
     font-weight: 300;
     font-family: 'NEXON Lv2 Gothic';
 
