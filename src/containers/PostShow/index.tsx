@@ -70,5 +70,9 @@ const S = {
     ${Media.Tablet} {
       padding: 40px 0;
     }
+
+    ${Media.Mobile} {
+      padding: 40px 0;
+    }
   `,
 };
