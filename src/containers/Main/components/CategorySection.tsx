@@ -44,7 +44,7 @@ export function CategorySectionPlaceholder() {
       <ul className="category-list">
         {_.times(3, (index) => (
           <li key={index}>
-            <div className="link">
+            <div className="link placeholder">
               <Font.Medium>
                 <Skeleton.Text />
               </Font.Medium>
@@ -52,7 +52,7 @@ export function CategorySectionPlaceholder() {
             <ul className="child-category-list">
               {_.times(2, (index) => (
                 <li key={index}>
-                  <div className="link">
+                  <div className="link placeholder">
                     <Font.Medium>
                       <Skeleton.Text />
                     </Font.Medium>
@@ -120,18 +120,14 @@ const S = {
     ${Media.Desktop} {
       > .category-list > li {
         > .link {
-          transition: color 0.1s;
-
-          &:hover {
-            color: ${Color.Grey400};
+          &:hover:not(.placeholder) {
+            text-decoration: underline;
           }
         }
 
         > .child-category-list > li > .link {
-          transition: color 0.1s;
-
-          &:hover {
-            color: ${Color.Grey400};
+          &:hover:not(.placeholder) {
+            text-decoration: underline;
           }
         }
       }
