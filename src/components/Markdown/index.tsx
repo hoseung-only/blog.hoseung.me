@@ -8,6 +8,8 @@ import { CodeBlock } from "./renderers/CodeBlock";
 import { TableBlock } from "./renderers/TableBlock";
 import { ImageBlock } from "./renderers/ImageBlock";
 import { BlockquoteBlock } from "./renderers/BlockquoteBlock";
+import { UListBlock } from "./renderers/UListBlock";
+import { LIBlock } from "./renderers/LIBlock";
 
 export function Markdown({ content }: { content: string }) {
   return (
@@ -20,6 +22,8 @@ export function Markdown({ content }: { content: string }) {
           table: TableBlock,
           img: ImageBlock,
           blockquote: BlockquoteBlock,
+          ul: UListBlock,
+          li: LIBlock,
         }}
       >
         {content}
