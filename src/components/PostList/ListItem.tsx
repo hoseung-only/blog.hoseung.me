@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Models } from "@hoseung-only/blog-api-client";
 
+import { ReactComponent as FallbackImage } from "./images/fallback-image.svg";
+
 import { ResponsiveBlock } from "../ResponsiveBlock";
 import { Font } from "../Font";
 import { Skeleton } from "../Skeleton";
@@ -14,7 +16,13 @@ export function PostListItem({ post }: { post: Models.PostShow }) {
   return (
     <S.Container to={`/posts/${post.id}`}>
       <ResponsiveBlock width={4} height={3}>
-        <img className="image" src={post.coverImageURL} alt="" />
+        {post.coverImageURL ? (
+          <img className="image" src={post.coverImageURL} alt="" />
+        ) : (
+          <div className="fallback-image">
+            <FallbackImage />
+          </div>
+        )}
       </ResponsiveBlock>
       <div className="information">
         <Font.Bold className="title">{post.title}</Font.Bold>
@@ -73,6 +81,21 @@ const S = {
         object-fit: cover;
 
         transition: transform 0.25s;
+      }
+
+      > .fallback-image {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: ${Color.Blue100};
+
+        > svg {
+          width: 30%;
+        }
       }
     }
 
