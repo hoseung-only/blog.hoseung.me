@@ -16,14 +16,14 @@ export function CategorySection() {
     <S.Container>
       <ul className="category-list">
         {categories.map((category) => (
-          <li>
+          <li key={category.id}>
             <Link className="link" to={`/categories/${category.id}/posts`}>
               <Font.Medium>{category.name}</Font.Medium>
             </Link>
             {category.children.length > 0 && (
               <ul className="child-category-list">
                 {category.children.map((child) => (
-                  <li>
+                  <li key={child.id}>
                     <Link className="link" to={`/categories/${child.id}/posts`}>
                       <Font.Medium>{child.name}</Font.Medium>
                     </Link>
