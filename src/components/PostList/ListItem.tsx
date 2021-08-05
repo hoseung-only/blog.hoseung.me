@@ -74,13 +74,15 @@ const S = {
 
       overflow: hidden;
 
+      > * {
+        transition: transform 0.2s;
+      }
+
       > .image {
         width: 100%;
         height: 100%;
 
         object-fit: cover;
-
-        transition: transform 0.25s;
       }
 
       > .fallback-image {
@@ -150,7 +152,7 @@ const S = {
 
     ${Media.Desktop} {
       &:hover {
-        > ${ResponsiveBlock} > .content > .image {
+        > ${ResponsiveBlock} > .content > * {
           transform: scale(1.1);
         }
       }
