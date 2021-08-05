@@ -13,7 +13,7 @@ import { Media } from "../../constants/media";
 
 export function PostShow() {
   const { postId } = useParams<{ postId: string }>();
-  const post = useAPIQuery("getPost", { id: Number(postId) }, { suspense: true }).data;
+  const post = useAPIQuery("getPost", { id: postId }, { suspense: true }).data;
   return (
     <>
       <OG title={post.title} description={post.summary} image={post.coverImageURL} />

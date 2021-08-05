@@ -8,7 +8,7 @@ export function useCategoryPosts() {
   const { categoryId } = useParams<{ categoryId: string }>();
   const { data, loadMore, isLoading, canLoadMore } = usePaginatedAPIQuery(
     "getCategoryPostsByCursor",
-    { id: Number(categoryId) },
+    { id: categoryId, count: 12 },
     { suspense: true }
   );
 
