@@ -68,7 +68,7 @@ const S = {
     }
 
     ${Media.Mobile} {
-      width: calc((100% - 20px) / 2);
+      width: calc((100% - 10px) / 2);
 
       margin-right: 10px;
       margin-bottom: 20px;
