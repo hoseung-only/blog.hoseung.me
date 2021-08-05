@@ -9,7 +9,7 @@ export function Header() {
   return (
     <S.Container>
       <Link className="link" to="/">
-        <Font.Medium className="title">장호승 개발 블로그</Font.Medium>
+        <Font.Medium className="title">장호승 개발 블로그 😎</Font.Medium>
       </Link>
     </S.Container>
   );
