@@ -7,7 +7,7 @@ import { Media } from "../../constants/media";
 export function Header() {
   return (
     <S.Container>
-      <Font.Medium>장호승 개발 블로그</Font.Medium>
+      <Font.Medium className="title">장호승 개발 블로그</Font.Medium>
     </S.Container>
   );
 }
@@ -25,9 +25,7 @@ const S = {
     }
 
     ${Media.Mobile} {
-      > .title {
-        font-size: 2rem;
-      }
+      height: 80px;
     }
   `,
 };
