@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { PostList, PostListPlaceholder } from "../../../components/Desktop/PostList";
+import { PostList, PostListPlaceholder } from "../../../components/PostList";
 
 import { usePosts } from "../hooks/usePosts";
 
