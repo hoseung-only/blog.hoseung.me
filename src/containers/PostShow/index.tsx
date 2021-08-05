@@ -48,7 +48,12 @@ const S = {
     display: flex;
     flex-direction: column;
 
-    padding: 40px 10%;
+    padding: 40px 0;
+
+    ${Media.Desktop} {
+      padding-left: 25%;
+      padding-right: 25%;
+    }
 
     box-sizing: border-box;
 
@@ -65,14 +70,6 @@ const S = {
       width: 100%;
 
       margin-top: 40px;
-    }
-
-    ${Media.Tablet} {
-      padding: 40px 0;
-    }
-
-    ${Media.Mobile} {
-      padding: 40px 0;
     }
   `,
 };
