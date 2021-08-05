@@ -111,6 +111,10 @@ const S = {
 
       box-sizing: border-box;
 
+      > * {
+        word-break: break-all;
+      }
+
       > .title {
         margin-bottom: 6px;
 
