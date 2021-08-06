@@ -21,12 +21,18 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
 
     font-size: 10px;
-    font-weight: 300;
     font-family: 'NEXON Lv2 Gothic';
 
     @font-face {
       font-family: 'NEXON Lv2 Gothic';
       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'NEXON Lv2 Gothic Light';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Light.woff') format('woff');
       font-weight: normal;
       font-style: normal;
     }
