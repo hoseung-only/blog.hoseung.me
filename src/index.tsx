@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
 
     font-size: 10px;
     font-family: 'NEXON Lv2 Gothic';
+    line-height: 1.4;
 
     @font-face {
       font-family: 'NEXON Lv2 Gothic';
