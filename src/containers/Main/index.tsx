@@ -33,7 +33,7 @@ export function Main() {
         {tabs.map((tab, index) => (
           <li key={index}>
             <NavLink className="link" activeClassName="current" to={tab.to} exact>
-              <Font.Regular>{tab.label}</Font.Regular>
+              <Font.Medium>{tab.label}</Font.Medium>
             </NavLink>
           </li>
         ))}
