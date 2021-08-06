@@ -1,7 +1,6 @@
 import { NavLink, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
-import { OG } from "../../components/OG";
 import { Profile } from "./components/Profile";
 import { Font } from "../../components/Font";
 import { PostSection, PostSectionPlaceholder } from "./components/PostSection";
@@ -28,32 +27,29 @@ const tabs = [
 
 export function Main() {
   return (
-    <>
-      <OG />
-      <S.Container>
-        <Profile />
-        <ul className="tabs">
-          {tabs.map((tab, index) => (
-            <li key={index}>
-              <NavLink className="link" activeClassName="current" to={tab.to} exact>
-                <Font.Regular>{tab.label}</Font.Regular>
-              </NavLink>
-            </li>
-          ))}
-          <div
-            className="current-tab-indicator"
-            style={{
-              transform: `translateX(calc(100% * ${tabs.findIndex((tab) => tab.to === window.location.pathname)})`,
-            }}
-          />
-        </ul>
-        <Switch>
-          {tabs.map((tab, index) => (
-            <Route key={index} path={tab.to} exact component={withPlaceholder(tab.component, tab.placeholder)} />
-          ))}
-        </Switch>
-      </S.Container>
-    </>
+    <S.Container>
+      <Profile />
+      <ul className="tabs">
+        {tabs.map((tab, index) => (
+          <li key={index}>
+            <NavLink className="link" activeClassName="current" to={tab.to} exact>
+              <Font.Regular>{tab.label}</Font.Regular>
+            </NavLink>
+          </li>
+        ))}
+        <div
+          className="current-tab-indicator"
+          style={{
+            transform: `translateX(calc(100% * ${tabs.findIndex((tab) => tab.to === window.location.pathname)})`,
+          }}
+        />
+      </ul>
+      <Switch>
+        {tabs.map((tab, index) => (
+          <Route key={index} path={tab.to} exact component={withPlaceholder(tab.component, tab.placeholder)} />
+        ))}
+      </Switch>
+    </S.Container>
   );
 }
 

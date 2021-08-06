@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import { useAPIQuery } from "../../hooks/useAPIQuery";
 
-import { OG } from "../../components/OG";
 import { Header, HeaderPlaceholder } from "./components/Header";
 import { ResponsiveBlock } from "../../components/ResponsiveBlock";
 import { Markdown } from "../../components/Markdown";
@@ -15,20 +14,17 @@ export function PostShow() {
   const { postId } = useParams<{ postId: string }>();
   const post = useAPIQuery("getPost", { id: postId }, { suspense: true }).data;
   return (
-    <>
-      <OG title={post.title} description={post.summary} image={post.coverImageURL} />
-      <S.Container>
-        <Header title={post.title} createdAt={post.createdAt} />
-        {post.coverImageURL && (
-          <ResponsiveBlock width={4} height={2}>
-            <img className="cover-image" src={post.coverImageURL} alt="" />
-          </ResponsiveBlock>
-        )}
-        <div className="content">
-          <Markdown content={post.content} />
-        </div>
-      </S.Container>
-    </>
+    <S.Container>
+      <Header title={post.title} createdAt={post.createdAt} />
+      {post.coverImageURL && (
+        <ResponsiveBlock width={4} height={2}>
+          <img className="cover-image" src={post.coverImageURL} alt="" />
+        </ResponsiveBlock>
+      )}
+      <div className="content">
+        <Markdown content={post.content} />
+      </div>
+    </S.Container>
   );
 }
 
