@@ -17,9 +17,9 @@ export function Profile() {
           const { icon: Icon, to, name } = link;
           return (
             <li>
-              <a href={link.to}>
+              <a href={to}>
                 <Icon className="icon" />
-                <Font.Regular className="name">{link.name}</Font.Regular>
+                <Font.Regular className="name">{name}</Font.Regular>
               </a>
             </li>
           );
