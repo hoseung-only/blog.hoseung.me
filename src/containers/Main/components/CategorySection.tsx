@@ -2,12 +2,13 @@ import _ from "lodash";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import { useCategories } from "../hooks/useCategories";
+
 import { Font } from "../../../components/Font";
 import { Skeleton } from "../../../components/Skeleton";
 
+import { Color } from "../../../constants/color";
 import { Media } from "../../../constants/media";
-
-import { useCategories } from "../hooks/useCategories";
 
 export function CategorySection() {
   const categories = useCategories();
@@ -41,7 +42,7 @@ export function CategorySectionPlaceholder() {
   return (
     <S.Container>
       <ul className="category-list">
-        {_.times(3, (index) => (
+        {_.times(4, (index) => (
           <li key={index}>
             <div className="link placeholder">
               <Font.Medium>
@@ -71,16 +72,18 @@ const S = {
     width: 100%;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 
     > .category-list {
       display: flex;
-      flex-direction: column;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
 
       > li {
+        margin-bottom: 40px;
+
         &:not(:last-child) {
-          margin-bottom: 20px;
+          margin-right: 50px;
         }
 
         > .link {
@@ -95,13 +98,31 @@ const S = {
           display: flex;
           flex-direction: column;
 
-          margin-top: 8px;
+          margin-top: 12px;
 
           > li {
-            margin-left: 30px;
+            position: relative;
+
+            padding-left: 40px;
+
+            box-sizing: border-box;
+
+            &::before {
+              position: absolute;
+
+              top: calc(50% - 2px);
+              left: 16px;
+
+              content: "";
+
+              width: 10px;
+              height: 2px;
+
+              background-color: ${Color.Black100};
+            }
 
             &:not(:last-child) {
-              margin-bottom: 10px;
+              margin-bottom: 16px;
             }
 
             > .link {
@@ -126,6 +147,38 @@ const S = {
 
         > .child-category-list > li > .link {
           &:hover:not(.placeholder) {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    ${Media.Tablet} {
+      > .category-list > li {
+        > .link {
+          &:not(.placeholder) {
+            text-decoration: underline;
+          }
+        }
+
+        > .child-category-list > li > .link {
+          &:not(.placeholder) {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    ${Media.Mobile} {
+      > .category-list > li {
+        > .link {
+          &:not(.placeholder) {
+            text-decoration: underline;
+          }
+        }
+
+        > .child-category-list > li > .link {
+          &:not(.placeholder) {
             text-decoration: underline;
           }
         }
