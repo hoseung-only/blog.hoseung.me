@@ -48,7 +48,11 @@ const S = {
         margin-right: 0;
       }
 
-      &:nth-last-child(-n + 4):nth-child(4n) ~ & {
+      &:nth-last-child(-n + 4):nth-child(4n + 1) {
+        margin-bottom: 0;
+      }
+
+      &:nth-last-child(-n + 4):nth-child(4n + 1) ~ & {
         margin-bottom: 0;
       }
     }
@@ -63,7 +67,11 @@ const S = {
         margin-right: 0;
       }
 
-      &:nth-last-child(-n + 3):nth-child(3n) ~ & {
+      &:nth-last-child(-n + 3):nth-child(3n + 1) {
+        margin-bottom: 0;
+      }
+
+      &:nth-last-child(-n + 3):nth-child(3n + 1) ~ & {
         margin-bottom: 0;
       }
     }
