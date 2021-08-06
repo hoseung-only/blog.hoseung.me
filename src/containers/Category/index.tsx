@@ -8,11 +8,17 @@ import { PostList, PostListPlaceholder } from "../../components/PostList";
 import { Color } from "../../constants/color";
 
 export function Category() {
-  const { posts, loadingTriggerRef } = useCategoryPosts();
+  const { posts, isLoading, loadingTriggerRef } = useCategoryPosts();
   return (
     <S.Container>
       <Font.Light className="title">카테고리 포스트</Font.Light>
       <PostList posts={posts} />
+      {isLoading && (
+        <>
+          <div style={{ marginTop: 20 }} />
+          <PostListPlaceholder itemCount={12} />
+        </>
+      )}
       <div ref={loadingTriggerRef} />
     </S.Container>
   );

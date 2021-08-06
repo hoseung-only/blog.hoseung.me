@@ -5,10 +5,16 @@ import { PostList, PostListPlaceholder } from "../../../components/PostList";
 import { usePosts } from "../hooks/usePosts";
 
 export function PostSection() {
-  const { posts, loadingTriggerRef } = usePosts();
+  const { posts, isLoading, loadingTriggerRef } = usePosts();
   return (
     <S.Container>
       <PostList posts={posts} />
+      {isLoading && (
+        <>
+          <div style={{ marginTop: 20 }} />
+          <PostListPlaceholder itemCount={12} />
+        </>
+      )}
       <div ref={loadingTriggerRef} />
     </S.Container>
   );
