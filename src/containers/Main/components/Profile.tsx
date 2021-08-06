@@ -11,7 +11,7 @@ export function Profile() {
   return (
     <S.Container>
       <img className="image" src={profileImage} alt="" />
-      <Font.Regular className="introduction">개발과 기록을 즐기는 장호승입니다.</Font.Regular>
+      <Font.Light className="introduction">개발과 기록을 즐기는 장호승입니다.</Font.Light>
       <ul className="external-link-list">
         {externalLinks.map((link) => {
           const { icon: Icon, to, name } = link;
@@ -19,7 +19,7 @@ export function Profile() {
             <li>
               <a href={to}>
                 <Icon className="icon" />
-                <Font.Regular className="name">{name}</Font.Regular>
+                <Font.Light className="name">{name}</Font.Light>
               </a>
             </li>
           );

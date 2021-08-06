@@ -26,8 +26,8 @@ export function PostListItem({ post }: { post: Models.PostShow }) {
       </ResponsiveBlock>
       <div className="information">
         <Font.Bold className="title">{post.title}</Font.Bold>
-        <Font.Regular className="summary">{post.summary}</Font.Regular>
-        <Font.Regular className="created-at">{dayjs(post.createdAt).format("YYYY.MM.DD")}</Font.Regular>
+        <Font.Light className="summary">{post.summary}</Font.Light>
+        <Font.Light className="created-at">{dayjs(post.createdAt).format("YYYY.MM.DD")}</Font.Light>
       </div>
     </S.Container>
   );
@@ -43,12 +43,12 @@ export function PostListItemPlaceholder() {
         <Font.Bold className="title">
           <Skeleton.Text />
         </Font.Bold>
-        <Font.Regular className="summary">
+        <Font.Light className="summary">
           <Skeleton.Text />
-        </Font.Regular>
-        <Font.Regular className="created-at">
+        </Font.Light>
+        <Font.Light className="created-at">
           <Skeleton.Text />
-        </Font.Regular>
+        </Font.Light>
       </div>
     </S.Container>
   );

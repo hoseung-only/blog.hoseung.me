@@ -60,7 +60,7 @@ export function MainPlaceholder() {
         {tabs.map((tab, index) => (
           <li key={index}>
             <NavLink className="link" activeClassName="current" to={tab.to} exact>
-              <Font.Regular>{tab.label}</Font.Regular>
+              <Font.Light>{tab.label}</Font.Light>
             </NavLink>
           </li>
         ))}

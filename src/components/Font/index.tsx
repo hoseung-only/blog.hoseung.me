@@ -9,7 +9,7 @@ export const Font = {
     font-weight: 500;
     font-family: "NEXON Lv2 Gothic";
   `,
-  Regular: styled.div`
+  Light: styled.div`
     font-weight: 700;
     font-family: "NEXON Lv2 Gothic Light";
   `,

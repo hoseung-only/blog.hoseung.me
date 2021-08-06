@@ -16,7 +16,7 @@ export function Header({ title, createdAt }: HeaderProps) {
   return (
     <S.Container>
       <Font.Bold className="title">{title}</Font.Bold>
-      <Font.Regular className="created-at">{dayjs(createdAt).format("YYYY.MM.DD")}</Font.Regular>
+      <Font.Light className="created-at">{dayjs(createdAt).format("YYYY.MM.DD")}</Font.Light>
     </S.Container>
   );
 }
@@ -27,9 +27,9 @@ export function HeaderPlaceholder() {
       <Font.Bold className="title">
         <Skeleton.Text />
       </Font.Bold>
-      <Font.Regular className="created-at">
+      <Font.Light className="created-at">
         <Skeleton.Text />
-      </Font.Regular>
+      </Font.Light>
     </S.Container>
   );
 }

@@ -11,7 +11,7 @@ export function Category() {
   const { posts, loadingTriggerRef } = useCategoryPosts();
   return (
     <S.Container>
-      <Font.Regular className="title">카테고리 포스트</Font.Regular>
+      <Font.Light className="title">카테고리 포스트</Font.Light>
       <PostList posts={posts} />
       <div ref={loadingTriggerRef} />
     </S.Container>
@@ -21,7 +21,7 @@ export function Category() {
 export function CategoryPlaceholder() {
   return (
     <S.Container>
-      <Font.Regular className="title">카테고리 포스트</Font.Regular>
+      <Font.Light className="title">카테고리 포스트</Font.Light>
       <PostListPlaceholder itemCount={12} />
     </S.Container>
   );
