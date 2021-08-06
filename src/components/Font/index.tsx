@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Font = {
-  Regular: styled.div`
-    font-weight: 300;
+  Bold: styled.div`
+    font-weight: 700;
+    font-family: "NEXON Lv2 Gothic";
   `,
   Medium: styled.div`
     font-weight: 500;
+    font-family: "NEXON Lv2 Gothic";
   `,
-  Bold: styled.div`
-    font-weight: 700;
+  Regular: styled.div`
+    font-family: "NEXON Lv2 Gothic Light";
   `,
 };
