@@ -4,43 +4,53 @@ import styled from "styled-components";
 import { Color } from "../../../constants/color";
 
 export function TableBlock({ children }: { children: ReactNode }) {
-  return <S.Container>{children}</S.Container>;
+  return (
+    <S.Container>
+      <table>{children}</table>
+    </S.Container>
+  );
 }
 
 const S = {
-  Container: styled.table`
-    width: fit-content;
+  Container: styled.div`
+    width: 100%;
 
-    border-spacing: 0;
+    overflow-x: scroll;
 
-    > thead {
-      > tr {
-        > th {
-          padding: 6px 13px;
+    > table {
+      width: fit-content;
 
-          box-sizing: border-box;
+      border-spacing: 0;
 
-          border: 1px solid ${Color.Grey200};
+      > thead {
+        > tr {
+          > th {
+            padding: 6px 13px;
 
-          &:not(:last-child) {
-            border-right: none;
+            box-sizing: border-box;
+
+            border: 1px solid ${Color.Grey200};
+
+            &:not(:last-child) {
+              border-right: none;
+            }
           }
         }
       }
-    }
 
-    > tbody {
-      > tr {
-        > td {
-          padding: 6px 13px;
+      > tbody {
+        > tr {
+          > td {
+            padding: 6px 13px;
 
-          box-sizing: border-box;
+            box-sizing: border-box;
 
-          border: 1px solid ${Color.Grey200};
-          border-top: none;
+            border: 1px solid ${Color.Grey200};
+            border-top: none;
 
-          &:not(:last-child) {
-            border-right: none;
+            &:not(:last-child) {
+              border-right: none;
+            }
           }
         }
       }
