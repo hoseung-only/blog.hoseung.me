@@ -1,5 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import { BsPeopleCircle } from "react-icons/bs";
+import { RiBookFill } from "react-icons/ri";
 import { IconType } from "react-icons/lib";
 
 interface ExternalLink {
@@ -18,5 +19,10 @@ export const externalLinks: ExternalLink[] = [
     icon: BsPeopleCircle,
     name: "About",
     to: "https://about.hoseung.me",
+  },
+  {
+    icon: RiBookFill,
+    name: "TIL",
+    to: "https://hoseungjang.github.io/wiki-front",
   },
 ];
