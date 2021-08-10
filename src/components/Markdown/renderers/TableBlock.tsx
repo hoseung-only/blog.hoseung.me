@@ -15,6 +15,8 @@ const S = {
   Container: styled.div`
     width: 100%;
 
+    word-break: keep-all;
+
     overflow-x: scroll;
 
     > table {
