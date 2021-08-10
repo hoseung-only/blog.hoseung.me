@@ -38,5 +38,6 @@ const S = {
     flex-direction: column;
 
     font-size: 1.8rem;
+    word-break: break-all;
   `,
 };
