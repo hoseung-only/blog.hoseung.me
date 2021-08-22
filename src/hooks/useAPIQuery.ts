@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import useSWR, { SWRConfiguration, useSWRInfinite, SWRInfiniteConfiguration } from "swr";
+import useSWR, { SWRConfiguration, useSWRInfinite, SWRInfiniteConfiguration, SWRResponse } from "swr";
 import { Client } from "@hoseung-only/blog-api-client";
 
 import { useAPIClient } from "../contexts/APIClient";
@@ -11,9 +11,11 @@ type OperationResult<O extends OperationId> = ReturnType<Client[O]> extends Prom
 type QueryResult<O extends OperationId, C> = C extends { suspense: true }
   ? {
       data: OperationResult<O>;
+      mutate: SWRResponse<OperationResult<O>, any>["mutate"];
     }
   : {
       data?: OperationResult<O>;
+      mutate: SWRResponse<OperationResult<O>, any>["mutate"];
     };
 
 type InfiniteQueryResult<O extends OperationId> = {
@@ -46,6 +48,7 @@ export function useAPIQuery<O extends OperationId, C extends SWRConfiguration>(
 
   return {
     data: result.data,
+    mutate: result.mutate,
   } as QueryResult<O, C>;
 }
 
