@@ -10,13 +10,15 @@ import { Media } from "../../../constants/media";
 interface HeaderProps {
   title: string;
   createdAt: number;
+  viewCount: number;
 }
 
-export function Header({ title, createdAt }: HeaderProps) {
+export function Header({ title, createdAt, viewCount }: HeaderProps) {
   return (
     <S.Container>
       <Font.Bold className="title">{title}</Font.Bold>
       <Font.Light className="created-at">{dayjs(createdAt).format("YYYY.MM.DD")}</Font.Light>
+      <Font.Medium className="view-count">👀 {viewCount}명이 봤어요!</Font.Medium>
     </S.Container>
   );
 }
@@ -38,8 +40,8 @@ const S = {
   Container: styled.div`
     width: 100%;
 
-    padding-bottom: 20px;
-    margin-bottom: 40px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 
     box-sizing: border-box;
 
@@ -56,12 +58,18 @@ const S = {
     }
 
     > .created-at {
+      margin-bottom: 10px;
+
       font-size: 1.6rem;
       color: ${Color.Grey400};
 
       > ${Skeleton.Text} {
         width: 90px;
       }
+    }
+
+    > .view-count {
+      font-size: 1.6rem;
     }
 
     ${Media.Mobile} {

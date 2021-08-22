@@ -13,10 +13,10 @@ export function Profile() {
       <img className="image" src={profileImage} alt="" />
       <Font.Light className="introduction">개발과 기록을 즐기는 장호승입니다.</Font.Light>
       <ul className="external-link-list">
-        {externalLinks.map((link) => {
+        {externalLinks.map((link, index) => {
           const { icon: Icon, to, name } = link;
           return (
-            <li>
+            <li key={index}>
               <a href={to}>
                 <Icon className="icon" />
                 <Font.Light className="name">{name}</Font.Light>

@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import styled from "styled-components";
 
-import { useAPIQuery } from "../../hooks/useAPIQuery";
+import { usePost } from "./hooks/usePost";
 
 import { Header, HeaderPlaceholder } from "./components/Header";
 import { ResponsiveBlock } from "../../components/ResponsiveBlock";
@@ -12,10 +12,11 @@ import { Media } from "../../constants/media";
 
 export function PostShow() {
   const { postId } = useParams<{ postId: string }>();
-  const post = useAPIQuery("getPost", { id: postId }, { suspense: true }).data;
+  const post = usePost(postId);
+
   return (
     <S.Container>
-      <Header title={post.title} createdAt={post.createdAt} />
+      <Header title={post.title} createdAt={post.createdAt} viewCount={post.viewCount} />
       {post.coverImageURL && (
         <ResponsiveBlock width={4} height={2}>
           <img className="cover-image" src={post.coverImageURL} alt="" />
