@@ -16,7 +16,7 @@ interface HeaderProps {
 export function Header({ title, createdAt, viewCount }: HeaderProps) {
   return (
     <S.Container>
-      <Font.Bold className="title">{title}</Font.Bold>
+      <Font.Bold className="title" as="h1">{title}</Font.Bold>
       <Font.Light className="created-at">{dayjs(createdAt).format("YYYY.MM.DD")}</Font.Light>
       <Font.Medium className="view-count">👀 {viewCount}명이 봤어요!</Font.Medium>
     </S.Container>
