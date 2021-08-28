@@ -2,15 +2,19 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useInView } from "react-intersection-observer";
 
-import { usePaginatedAPIQuery } from "../../../hooks/useAPIQuery";
+import { useAPIQuery, usePaginatedAPIQuery } from "../../../hooks/useAPIQuery";
 
 export function useCategoryPosts() {
   const { categoryId } = useParams<{ categoryId: string }>();
-  const { data, loadMore, isLoading, canLoadMore } = usePaginatedAPIQuery(
-    "getCategoryPostsByCursor",
-    { id: categoryId, count: 12 },
-    { suspense: true }
-  );
+
+  const category = useAPIQuery("getCategory", { id: categoryId }, { suspense: true }).data;
+
+  const {
+    data: posts,
+    loadMore,
+    isLoading,
+    canLoadMore,
+  } = usePaginatedAPIQuery("getCategoryPostsByCursor", { id: categoryId, count: 12 }, { suspense: true });
 
   const { ref, inView } = useInView({ initialInView: false });
 
@@ -21,7 +25,8 @@ export function useCategoryPosts() {
   }, [loadMore, inView]);
 
   return {
-    posts: data,
+    category,
+    posts,
     loadMore,
     isLoading,
     canLoadMore,

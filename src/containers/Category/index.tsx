@@ -8,10 +8,10 @@ import { PostList, PostListPlaceholder } from "../../components/PostList";
 import { Color } from "../../constants/color";
 
 export function Category() {
-  const { posts, isLoading, loadingTriggerRef } = useCategoryPosts();
+  const { category, posts, isLoading, loadingTriggerRef } = useCategoryPosts();
   return (
     <S.Container>
-      <Font.Light className="title">카테고리 포스트</Font.Light>
+      <Font.Light className="title">{category.name}</Font.Light>
       <PostList posts={posts} />
       {isLoading && (
         <>
