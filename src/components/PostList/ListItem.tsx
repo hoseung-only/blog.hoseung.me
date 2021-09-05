@@ -5,6 +5,7 @@ import { Models } from "@hoseung-only/blog-api-client";
 
 import { ReactComponent as FallbackImage } from "./images/fallback-image.svg";
 
+import { FadeImage } from "./FadeImage";
 import { ResponsiveBlock } from "../ResponsiveBlock";
 import { Font } from "../Font";
 import { Skeleton } from "../Skeleton";
@@ -15,15 +16,13 @@ import { Media } from "../../constants/media";
 export function PostListItem({ post }: { post: Models.PostShow }) {
   return (
     <S.Container to={`/posts/${post.id}`}>
-      <ResponsiveBlock width={4} height={3}>
-        {post.coverImageURL ? (
-          <img className="image" src={post.coverImageURL} alt="" />
-        ) : (
-          <div className="fallback-image">
-            <FallbackImage />
-          </div>
-        )}
-      </ResponsiveBlock>
+      {post.coverImageURL ? (
+        <FadeImage src={post.coverImageURL} alt="" />
+      ) : (
+        <ResponsiveBlock className="fallback-image-container" width={4} height={3}>
+          <FallbackImage />
+        </ResponsiveBlock>
+      )}
       <div className="information">
         <Font.Bold className="title">{post.title}</Font.Bold>
         <Font.Light className="summary">{post.summary}</Font.Light>
@@ -66,38 +65,26 @@ const S = {
 
     transform: translateY(0);
 
-    > ${ResponsiveBlock} > .content {
-      width: 100%;
-      height: 100%;
-
+    > ${ResponsiveBlock} {
       border-radius: 10px;
 
       overflow: hidden;
 
-      > * {
-        transition: transform 0.2s;
-      }
-
-      > .image {
+      > .content {
         width: 100%;
         height: 100%;
-
-        object-fit: cover;
       }
+    }
 
-      > .fallback-image {
-        width: 100%;
-        height: 100%;
+    > .fallback-image-container > .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      background-color: ${Color.Blue100};
 
-        background-color: ${Color.Blue100};
-
-        > svg {
-          width: 30%;
-        }
+      > svg {
+        width: 30%;
       }
     }
 
@@ -152,9 +139,13 @@ const S = {
 
     ${Media.Desktop} {
       &:hover {
-        > ${ResponsiveBlock} > .content > * {
+        > .fallback-image-container > .content {
           transform: scale(1.1);
         }
+      }
+
+      > .fallback-image-container > .content {
+        transition: transform 0.2s;
       }
     }
 
