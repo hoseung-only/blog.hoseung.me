@@ -9,8 +9,8 @@ export function RouteSwitch() {
   useScrollToTop();
   return (
     <Switch>
-      {routes.map((routeSpec) => (
-        <ResponsiveRoute key={routeSpec.name} {...routeSpec} />
+      {routes.map((routeSpec, index) => (
+        <ResponsiveRoute key={index} {...routeSpec} />
       ))}
     </Switch>
   );
