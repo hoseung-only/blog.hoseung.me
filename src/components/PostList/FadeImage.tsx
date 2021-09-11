@@ -51,10 +51,18 @@ const S = {
 
         opacity: 0;
 
-        transition: opacity 0.2s;
-
         &.loaded {
-          opacity: 1;
+          @keyframes fade {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          animation: fade 0.15s linear;
+          animation-fill-mode: forwards;
         }
       }
 
