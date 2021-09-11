@@ -4,6 +4,7 @@ import { useCategoryPosts } from "./hooks/useCategoryPosts";
 
 import { Font } from "../../components/Font";
 import { PostList, PostListPlaceholder } from "../../components/PostList";
+import { Skeleton } from "../../components/Skeleton";
 
 import { Color } from "../../constants/color";
 
@@ -27,7 +28,9 @@ export function Category() {
 export function CategoryPlaceholder() {
   return (
     <S.Container>
-      <Font.Light className="title">카테고리 포스트</Font.Light>
+      <Font.Light className="title">
+        <Skeleton.Text style={{ width: 150 }} />
+      </Font.Light>
       <PostListPlaceholder itemCount={12} />
     </S.Container>
   );
