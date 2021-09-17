@@ -3,21 +3,22 @@ import { useRouter } from "next/router";
 import styled, { createGlobalStyle } from "styled-components";
 
 import { Header } from "../components/Header";
+import { Header as MainHeader } from "../components/main/Header";
 
 import { Color } from "../constants/color";
 import { Media } from "../constants/media";
-import { Profile } from "../components/main/Profile";
 
 const profileShowPaths = new Set(["/", "/categories"]);
 
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
+
   return (
     <>
       <GlobalStyle />
       <S.Container>
         <Header />
-        {profileShowPaths.has(pathname) && <Profile />}
+        {profileShowPaths.has(pathname) && <MainHeader />}
         <Component {...pageProps} />
       </S.Container>
     </>

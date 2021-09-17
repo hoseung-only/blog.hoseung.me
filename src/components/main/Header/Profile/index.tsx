@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { Font } from "../../Font";
+import { Font } from "../../../Font";
 
-import { externalLinks } from "../../../constants/externalLinks";
-import { Media } from "../../../constants/media";
+import { externalLinks } from "../../../../constants/externalLinks";
+import { Media } from "../../../../constants/media";
 
 export function Profile() {
   return (
