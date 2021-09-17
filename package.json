@@ -42,7 +42,7 @@
     "format": "onchange 'src/**/*.{ts,tsx}' -- prettier --write {{changed}}",
     "dev": "env-cmd -f .env next dev",
     "prod": "env-cmd -f .env next start",
-    "build": "env-cmd -f .env next build",
+    "build": "env-cmd -f .env next build && next export",
     "start:dev": "run-p format dev",
     "start:prod": "run-p format prod"
   },
