@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Color } from "../../../constants/color";
+import { Color } from "../../../../constants/color";
 
 export function BlockquoteBlock(props: any) {
   return <S.Container>{props.children}</S.Container>;

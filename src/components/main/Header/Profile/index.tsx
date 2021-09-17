@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Font } from "../../../Font";
+import { Font } from "../../../common/Font";
 
 import { externalLinks } from "../../../../constants/externalLinks";
 import { Media } from "../../../../constants/media";

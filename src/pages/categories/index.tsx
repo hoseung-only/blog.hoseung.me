@@ -5,8 +5,8 @@ import styled from "styled-components";
 
 import { Models } from "@hoseung-only/blog-api-client";
 
-import { Font } from "../../components/Font";
-import { Skeleton } from "../../components/Skeleton";
+import { Font } from "../../components/common/Font";
+import { Skeleton } from "../../components/common/Skeleton";
 
 import { Color } from "../../constants/color";
 import { Media } from "../../constants/media";

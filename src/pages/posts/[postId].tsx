@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { Models } from "@hoseung-only/blog-api-client";
 
 import { Header } from "../../components/post/Header";
-import { ResponsiveBlock } from "../../components/ResponsiveBlock";
-import { Markdown } from "../../components/Markdown";
+import { Markdown } from "../../components/post/Markdown";
+import { ResponsiveBlock } from "../../components/common/ResponsiveBlock";
 
 import { Media } from "../../constants/media";
 

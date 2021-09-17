@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 import styled from "styled-components";
 
-import { Font } from "../../Font";
-import { Skeleton } from "../../Skeleton";
+import { Font } from "../../common/Font";
+import { Skeleton } from "../../common/Skeleton";
 
 import { Color } from "../../../constants/color";
 import { Media } from "../../../constants/media";

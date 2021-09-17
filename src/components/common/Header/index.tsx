@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Font } from "../Font";
 
-import { Media } from "../../constants/media";
+import { Media } from "../../../constants/media";
 
 export function Header() {
   return (

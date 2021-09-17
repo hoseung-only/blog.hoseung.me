@@ -2,7 +2,7 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import styled, { createGlobalStyle } from "styled-components";
 
-import { Header } from "../components/Header";
+import { Header } from "../components/common/Header";
 import { Header as MainHeader } from "../components/main/Header";
 
 import { Color } from "../constants/color";

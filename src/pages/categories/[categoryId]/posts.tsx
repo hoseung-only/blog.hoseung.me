@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import { Models } from "@hoseung-only/blog-api-client";
 
-import { Font } from "../../../components/Font";
-import { PostList } from "../../../components/post/PostList";
+import { Font } from "../../../components/common/Font";
+import { PostList } from "../../../components/common/PostList";
 
 import { Color } from "../../../constants/color";
 

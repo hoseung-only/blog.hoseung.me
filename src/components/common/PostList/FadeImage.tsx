@@ -1,6 +1,6 @@
 import { CSSProperties, useMemo, useState, useEffect } from "react";
 import styled from "styled-components";
-import { Media } from "../../constants/media";
+import { Media } from "../../../constants/media";
 
 import { ResponsiveBlock } from "../ResponsiveBlock";
 import { Skeleton } from "../Skeleton";
@@ -12,23 +12,18 @@ interface FadeImageProps {
 }
 
 export function FadeImage({ src, alt = "", imgStyle }: FadeImageProps) {
-  const image = useMemo(() => {
-    const img = new Image();
-    img.src = src;
-    return img;
-  }, [src]);
-  const [isImageLoaded, setIsImageLoaded] = useState(() => image.complete);
+  const image = useMemo(() => {}, [src]);
+  const [isImageLoaded, setIsImageLoaded] = useState(() => true);
 
   useEffect(() => {
-    if (!image.complete) {
-      image.onload = () => setIsImageLoaded(true);
-    }
+    // if (!image.complete) {
+    //   image.onload = () => setIsImageLoaded(true);
+    // }
   }, [image]);
 
   return (
     <S.Container width={4} height={3}>
       <img className={isImageLoaded ? "loaded" : ""} src={src} alt={alt} style={imgStyle} />
-      {!isImageLoaded && <Skeleton.Rect />}
     </S.Container>
   );
 }

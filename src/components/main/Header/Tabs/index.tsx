@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import styled from "styled-components";
 
-import { Font } from "../../../Font";
+import { Font } from "../../../common/Font";
 import { PostSection, PostSectionProps } from "../../PostSection";
 // import { CategorySection, CategorySectionPlaceholder } from "../components/main/CategorySection";
 

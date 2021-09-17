@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-import { Color } from "../../../constants/color";
+import { Color } from "../../../../constants/color";
 
 export function TableBlock({ children }: { children: ReactNode }) {
   return (

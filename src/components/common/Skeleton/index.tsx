@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { Color } from "../../constants/color";
+import { Color } from "../../../constants/color";
 
 const animation = css`
   @keyframes loading {

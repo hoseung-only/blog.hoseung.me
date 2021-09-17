@@ -1,34 +1,34 @@
 import dayjs from "dayjs";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import styled from "styled-components";
 import { Models } from "@hoseung-only/blog-api-client";
-
-import { ReactComponent as FallbackImage } from "./images/fallback-image.svg";
 
 import { FadeImage } from "./FadeImage";
 import { ResponsiveBlock } from "../ResponsiveBlock";
 import { Font } from "../Font";
 import { Skeleton } from "../Skeleton";
 
-import { Color } from "../../constants/color";
-import { Media } from "../../constants/media";
+import { Color } from "../../../constants/color";
+import { Media } from "../../../constants/media";
 
 export function PostListItem({ post }: { post: Models.PostShow }) {
   return (
-    <S.Container to={`/posts/${post.id}`}>
-      {post.coverImageURL ? (
-        <FadeImage src={post.coverImageURL} alt="" />
-      ) : (
-        <ResponsiveBlock className="fallback-image-container" width={4} height={3}>
-          <FallbackImage />
-        </ResponsiveBlock>
-      )}
-      <div className="information">
-        <Font.Bold className="title">{post.title}</Font.Bold>
-        <Font.Light className="summary">{post.summary}</Font.Light>
-        <Font.Light className="created-at">{dayjs(post.createdAt).format("YYYY.MM.DD")}</Font.Light>
-      </div>
-    </S.Container>
+    <Link href={`/posts/${post.id}`}>
+      <S.Container>
+        {post.coverImageURL ? (
+          <FadeImage src={post.coverImageURL} alt="" />
+        ) : (
+          <ResponsiveBlock className="fallback-image-container" width={4} height={3}>
+            <img src="/images/post/fallback-image.svg" alt="" />
+          </ResponsiveBlock>
+        )}
+        <div className="information">
+          <Font.Bold className="title">{post.title}</Font.Bold>
+          <Font.Light className="summary">{post.summary}</Font.Light>
+          <Font.Light className="created-at">{dayjs(post.createdAt).format("YYYY.MM.DD")}</Font.Light>
+        </div>
+      </S.Container>
+    </Link>
   );
 }
 
@@ -54,7 +54,7 @@ export function PostListItemPlaceholder() {
 }
 
 const S = {
-  Container: styled(Link)`
+  Container: styled.a`
     width: 100%;
     height: 100%;
 
@@ -97,7 +97,7 @@ const S = {
       animation: fade 0.15s linear;
       animation-fill-mode: forwards;
 
-      > svg {
+      > img {
         width: 30%;
       }
     }

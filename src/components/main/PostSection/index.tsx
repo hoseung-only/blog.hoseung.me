@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 import { Models } from "@hoseung-only/blog-api-client";
 
-import { PostList, PostListPlaceholder } from "../../post/PostList";
-
-import { usePosts } from "../../../containers/Main/hooks/usePosts";
+import { PostList } from "../../common/PostList";
 
 export interface PostSectionProps {
   posts: Models.PostListShow["data"];
