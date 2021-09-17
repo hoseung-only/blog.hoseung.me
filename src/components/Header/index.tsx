@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import styled from "styled-components";
 
 import { Font } from "../Font";
@@ -8,8 +8,10 @@ import { Media } from "../../constants/media";
 export function Header() {
   return (
     <S.Container>
-      <Link className="link" to="/">
-        <Font.Medium className="title">장호승 개발 블로그 😎</Font.Medium>
+      <Link href="/">
+        <a className="link">
+          <Font.Medium className="title">장호승 개발 블로그 😎</Font.Medium>
+        </a>
       </Link>
     </S.Container>
   );
