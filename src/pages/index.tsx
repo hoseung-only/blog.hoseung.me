@@ -1,6 +1,8 @@
 import { GetStaticPropsResult } from "next";
 import styled from "styled-components";
 
+import { Models } from "@hoseung-only/blog-api-client";
+
 import { PostSection, PostSectionProps } from "../components/main/PostSection";
 // import { CategorySection, CategorySectionPlaceholder } from "../components/main/CategorySection";
 
@@ -8,6 +10,8 @@ import { Color } from "../constants/color";
 import { Media } from "../constants/media";
 
 import { client } from "../apiClient";
+
+import { Cache } from "../cache";
 
 export default function Main(props: PostSectionProps) {
   return (
@@ -33,12 +37,24 @@ export default function Main(props: PostSectionProps) {
 }
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<PostSectionProps>> {
-  const { data, nextCursor } = await client.getPostsByCursor({ count: 12 });
+  const params = { count: 12 };
+  const key = `getPostByCursor/${JSON.stringify(params)}`;
+  const cached = Cache.get<Models.PostListShow>(key);
+  if (cached) {
+    return {
+      props: {
+        posts: cached.data,
+        nextCursor: cached.nextCursor,
+      },
+    };
+  }
 
+  const result = await client.getPostsByCursor(params);
+  Cache.set(key, result);
   return {
     props: {
-      posts: data,
-      nextCursor,
+      posts: result.data,
+      nextCursor: result.nextCursor,
     },
   };
 }

@@ -8,7 +8,10 @@ import { ResponsiveBlock } from "../../components/ResponsiveBlock";
 import { Markdown } from "../../components/Markdown";
 
 import { Media } from "../../constants/media";
+
 import { client } from "../../apiClient";
+
+import { Cache } from "../../cache";
 
 interface PostShowProps {
   post: Models.PostShow;
@@ -30,14 +33,26 @@ export default function PostShow({ post }: PostShowProps) {
   );
 }
 
-export async function getStaticProps({
-  params,
-}: GetStaticPropsContext<{
-  postId: string;
-}>): Promise<GetStaticPropsResult<PostShowProps>> {
-  const { postId } = params;
-  const post = await client.getPost({ id: postId });
+export async function getStaticProps(
+  context: GetStaticPropsContext<{
+    postId: string;
+  }>
+): Promise<GetStaticPropsResult<PostShowProps>> {
+  const { postId } = context.params;
 
+  const params = { id: postId };
+  const key = `getPost/${JSON.stringify(params)}`;
+  const cached = Cache.get<Models.PostShow>(key);
+  if (cached) {
+    return {
+      props: {
+        post: cached,
+      },
+    };
+  }
+
+  const post = await client.getPost(params);
+  Cache.set(key, post);
   return {
     props: {
       post,
