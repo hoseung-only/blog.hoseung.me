@@ -38,7 +38,7 @@ export async function getStaticProps(
     postId: string;
   }>
 ): Promise<GetStaticPropsResult<PostShowProps>> {
-  const { postId } = context.params;
+  const { postId } = context.params!;
 
   const params = { id: postId };
   const key = `getPost/${JSON.stringify(params)}`;
