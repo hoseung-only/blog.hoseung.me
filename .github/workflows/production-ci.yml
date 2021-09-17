@@ -27,5 +27,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ap-northeast-2
         run: |
-          aws s3 sync ./out s3://blog.hoseung.me --acl public-read --delete
+          aws s3 sync ./build s3://blog.hoseung.me --acl public-read --delete
           aws cloudfront create-invalidation --distribution-id E2S9Y9KO0OX20A --paths "/*"

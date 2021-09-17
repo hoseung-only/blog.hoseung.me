@@ -6,13 +6,14 @@
     "@hoseung-only/blog-api-client": "^1.11.2",
     "dayjs": "^1.10.6",
     "lodash": "^4.17.21",
-    "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
     "react-intersection-observer": "^8.32.0",
     "react-markdown": "^6.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-syntax-highlighter": "^15.4.3",
     "remark-gfm": "^1.0.0",
     "remark-slug": "^6.0.0",
@@ -29,22 +30,18 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/react-syntax-highlighter": "^13.5.0",
     "@types/styled-components": "^5.1.9",
-    "babel-plugin-styled-components": "^1.13.2",
-    "babel-preset-next": "^1.4.0",
     "env-cmd": "^10.1.0",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
-    "postcss": "^8.3.6",
     "prettier": "^2.3.0",
+    "react-scripts": "4.0.3",
     "typescript": "^4.2.4"
   },
   "scripts": {
     "format": "onchange 'src/**/*.{ts,tsx}' -- prettier --write {{changed}}",
-    "dev": "env-cmd -f .env next dev",
-    "prod": "env-cmd -f .env next start",
-    "build": "env-cmd -f .env next build && next export",
-    "start:dev": "run-p format dev",
-    "start:prod": "run-p format prod"
+    "dev": "env-cmd -f .env react-scripts start",
+    "start": "run-p format dev",
+    "build": "env-cmd -f .env react-scripts build"
   },
   "eslintConfig": {
     "extends": [
