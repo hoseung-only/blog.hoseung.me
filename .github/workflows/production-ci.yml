@@ -18,7 +18,7 @@ jobs:
 
       - name: Build
         run: |
-          echo "API_BASE_URL=${{ secrets.API_BASE_URL }}" > .env
+          echo "REACT_APP_API_BASE_URL=${{ secrets.API_BASE_URL }}" > .env
           npm run build
 
       - name: Deploy
