@@ -12,7 +12,7 @@ export function Category() {
   const { category, posts, isLoading, loadingTriggerRef } = useCategoryPosts();
   return (
     <S.Container>
-      <Font.Light className="title">{category.name}</Font.Light>
+      <Font.Medium className="title">{category.name}</Font.Medium>
       <PostList posts={posts} />
       {isLoading && (
         <>
