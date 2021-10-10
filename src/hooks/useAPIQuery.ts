@@ -74,7 +74,7 @@ export function usePaginatedAPIQuery<O extends PaginatedOperationId, C extends S
       }
       return [next, operationId, JSON.stringify(params)];
     },
-    async (cursor) => {
+    async (cursor: number) => {
       try {
         return (await client[operationId]({
           cursor,
