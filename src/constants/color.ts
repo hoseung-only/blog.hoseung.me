@@ -1,6 +1,8 @@
 export enum Color {
   Blue300 = "#58ACFA",
+  Blue250 = "#6CB4F8",
   Blue200 = "#81BEF7",
+  Blue150 = "#93C5F5",
   Blue100 = "#A9D0F5",
   Black100 = "#1C1C1C",
   Black50 = "#585858",
