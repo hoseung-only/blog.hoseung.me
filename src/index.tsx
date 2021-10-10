@@ -5,7 +5,7 @@ import { SWRConfig } from "swr";
 
 import { APIClientContextProvider } from "./contexts/APIClient";
 
-import { Header } from "./components/Header";
+import { Header } from "./components/common/Header";
 
 import { RouteSwitch } from "./routes/RouteSwitch";
 
