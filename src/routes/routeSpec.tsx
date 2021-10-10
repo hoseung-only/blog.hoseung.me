@@ -1,9 +1,9 @@
 import { ComponentType } from "react";
 import { RouteComponentProps } from "react-router";
 
-import { Main, MainPlaceholder } from "../containers/Main";
-import { PostShow, PostShowPlaceholder } from "../containers/PostShow";
-import { Category, CategoryPlaceholder } from "../containers/Category";
+import { Home, HomePlaceholder } from "../containers/main/Home";
+import { PostShow, PostShowPlaceholder } from "../containers/post/PostShow";
+import { Category, CategoryPlaceholder } from "../containers/post/CategoryPostList";
 
 export interface RouteSpec {
   path: string | string[];
@@ -16,8 +16,8 @@ export const routes: RouteSpec[] = [
   {
     path: ["/", "/categories"],
     exact: true,
-    component: Main,
-    placeholder: MainPlaceholder,
+    component: Home,
+    placeholder: HomePlaceholder,
   },
   {
     path: "/posts/:postId",
