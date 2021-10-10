@@ -6,6 +6,7 @@ import { SWRConfig } from "swr";
 import { APIClientContextProvider } from "./contexts/APIClient";
 
 import { Header } from "./components/common/Header";
+import { Page } from "./components/common/Page";
 import { Footer } from "./components/common/Footer";
 
 import { RouteSwitch } from "./routes/RouteSwitch";
@@ -18,7 +19,8 @@ const GlobalStyle = createGlobalStyle`
 
   html, body {
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
+
 
     padding: 0;
     margin: 0;
@@ -47,12 +49,14 @@ const GlobalStyle = createGlobalStyle`
 
     > #root {
       width: 100%;
-      min-height: 100vh;
+      height: 100%;
 
       display: flex;
       justify-content: center;
 
       background-color: ${Color.Grey10};
+
+      overflow: scroll;
     }
 
     ${Media.Mobile} {
@@ -73,6 +77,10 @@ const S = {
     padding: 0 20px;
 
     box-sizing: border-box;
+
+    > * {
+      flex-shrink: 0;
+    }
 
     ${Media.Mobile} {
       max-width: 100%;
@@ -96,7 +104,9 @@ ReactDOM.render(
         <GlobalStyle />
         <S.Container>
           <Header />
-          <RouteSwitch />
+          <Page>
+            <RouteSwitch />
+          </Page>
           <Footer />
         </S.Container>
       </APIClientContextProvider>
