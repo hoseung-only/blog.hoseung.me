@@ -19,8 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
   html, body {
     width: 100%;
-    height: 100%;
-
+    min-height: 100vh;
 
     padding: 0;
     margin: 0;
@@ -49,14 +48,13 @@ const GlobalStyle = createGlobalStyle`
 
     > #root {
       width: 100%;
-      height: 100%;
+      min-height: 100vh;
 
       display: flex;
       justify-content: center;
 
       background-color: ${Color.Grey10};
 
-      overflow: scroll;
     }
 
     ${Media.Mobile} {
@@ -69,7 +67,7 @@ const S = {
   Container: styled.div`
     width: 100%;
     max-width: 1440px;
-    height: 100%;
+    min-height: 100vh;
 
     display: flex;
     flex-direction: column;
