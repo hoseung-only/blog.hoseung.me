@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { useCategories } from "../../../hooks/main/useCategories";
 
-import { CategoryList } from "./CategoryList";
+import { CategoryList, CategoryListPlaceholder } from "./CategoryList";
 
 export function CategorySection() {
   const categories = useCategories();
@@ -14,7 +14,11 @@ export function CategorySection() {
 }
 
 export function CategorySectionPlaceholder() {
-  return <S.Container></S.Container>;
+  return (
+    <S.Container>
+      <CategoryListPlaceholder />
+    </S.Container>
+  );
 }
 
 const S = {

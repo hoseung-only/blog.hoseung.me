@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
@@ -5,6 +6,7 @@ import styled from "styled-components";
 import { Models } from "@hoseung-only/blog-api-client";
 
 import { Font } from "../../common/Font";
+import { Skeleton } from "../../common/Skeleton";
 
 import { Color } from "../../../constants/color";
 import { Media } from "../../../constants/media";
@@ -34,6 +36,33 @@ export function CategoryList({ categories }: CategoryListProps) {
               ))}
             </ul>
           )}
+        </li>
+      ))}
+    </S.Container>
+  );
+}
+
+export function CategoryListPlaceholder() {
+  return (
+    <S.Container>
+      {_.times(3, (index) => (
+        <li key={index} className="item">
+          <div className="parent-wrapper">
+            <div className="link-to-parent">
+              <Font.Medium className="name">
+                <Skeleton.Text style={{ width: 0 }} />
+              </Font.Medium>
+            </div>
+          </div>
+          <ul className="children">
+            <li className="child-wrapper">
+              <div className="link-to-child">
+                <Font.Medium className="name">
+                  <Skeleton.Text style={{ width: 0 }} />
+                </Font.Medium>
+              </div>
+            </li>
+          </ul>
         </li>
       ))}
     </S.Container>
