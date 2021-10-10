@@ -6,6 +6,7 @@ import { SWRConfig } from "swr";
 import { APIClientContextProvider } from "./contexts/APIClient";
 
 import { Header } from "./components/common/Header";
+import { Footer } from "./components/common/Footer";
 
 import { RouteSwitch } from "./routes/RouteSwitch";
 
@@ -96,6 +97,7 @@ ReactDOM.render(
         <S.Container>
           <Header />
           <RouteSwitch />
+          <Footer />
         </S.Container>
       </APIClientContextProvider>
     </SWRConfig>
