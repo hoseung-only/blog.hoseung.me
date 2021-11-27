@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useMemo } from "react";
+import { createContext, ReactNode, useContext, useMemo } from "react";
 import { v4 as createUUID } from "uuid";
 
 const UserIdContext = createContext<string | null>(null);
@@ -22,4 +22,8 @@ export function UserIdContextProvider({ children }: ProviderProps) {
     return null;
   }, []);
   return <UserIdContext.Provider value={userId}>{children}</UserIdContext.Provider>;
+}
+
+export function useUserId() {
+  return useContext(UserIdContext);
 }
