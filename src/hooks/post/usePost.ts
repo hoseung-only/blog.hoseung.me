@@ -3,14 +3,19 @@ import { useCallback, useEffect } from "react";
 import { useAPIQuery } from "../common/useAPIQuery";
 
 import { useAPIClient } from "../../contexts/APIClient";
+import { useUserId } from "../../contexts/UserId";
 
 export function usePost(postId: string) {
   const { data: post, mutate } = useAPIQuery("getPost", { id: postId }, { suspense: true });
   const client = useAPIClient();
+  const userId = useUserId();
 
   const increaseViewCount = useCallback(async () => {
+    if (!userId) {
+      return;
+    }
     try {
-      const isSucceeded = (await client.increasePostViewCount({ id: postId })).success;
+      const isSucceeded = (await client.increasePostViewCount({ id: postId, userId })).success;
       if (isSucceeded) {
         mutate((data) => {
           if (data) {
@@ -22,7 +27,7 @@ export function usePost(postId: string) {
         }, false);
       }
     } catch (error) {}
-  }, [postId, client, mutate]);
+  }, [postId, userId, client, mutate]);
 
   useEffect(() => {
     increaseViewCount();
