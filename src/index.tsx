@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import { SWRConfig } from "swr";
 
+import { UserIdContextProvider } from "./contexts/UserId";
 import { APIClientContextProvider } from "./contexts/APIClient";
 
 import { Header } from "./components/common/Header";
@@ -98,16 +99,18 @@ ReactDOM.render(
         shouldRetryOnError: false,
       }}
     >
-      <APIClientContextProvider>
-        <GlobalStyle />
-        <S.Container>
-          <Header />
-          <Page>
-            <RouteSwitch />
-          </Page>
-          <Footer />
-        </S.Container>
-      </APIClientContextProvider>
+      <UserIdContextProvider>
+        <APIClientContextProvider>
+          <GlobalStyle />
+          <S.Container>
+            <Header />
+            <Page>
+              <RouteSwitch />
+            </Page>
+            <Footer />
+          </S.Container>
+        </APIClientContextProvider>
+      </UserIdContextProvider>
     </SWRConfig>
   </BrowserRouter>,
   document.getElementById("root")
