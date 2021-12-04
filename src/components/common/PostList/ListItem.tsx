@@ -83,20 +83,6 @@ const S = {
 
       background-color: ${Color.Blue100};
 
-      opacity: 0;
-
-      @keyframes fade {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      animation: fade 0.15s linear;
-      animation-fill-mode: forwards;
-
       > svg {
         width: 30%;
       }

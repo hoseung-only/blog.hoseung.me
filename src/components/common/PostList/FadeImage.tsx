@@ -50,19 +50,10 @@ const S = {
         object-fit: cover;
 
         opacity: 0;
+        transition: opacity 0.2s;
 
         &.loaded {
-          @keyframes fade {
-            from {
-              opacity: 0;
-            }
-            to {
-              opacity: 1;
-            }
-          }
-
-          animation: fade 0.15s linear;
-          animation-fill-mode: forwards;
+          opacity: 1;
         }
       }
 
