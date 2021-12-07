@@ -1,4 +1,4 @@
-import { useCallback, ChangeEventHandler } from "react";
+import { useCallback, ChangeEventHandler, useRef, useEffect } from "react";
 import { RouteComponentProps } from "react-router";
 import styled from "styled-components";
 
@@ -20,10 +20,19 @@ export function Search(props: RouteComponentProps<SearchPathParams>) {
 
   const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>((e) => setQuery(e.target.value), [setQuery]);
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const current = inputRef.current;
+    if (current) {
+      current.focus();
+    }
+  }, []);
+
   return (
     <S.Container>
       <form onSubmit={handleSubmit}>
-        <input className="search-query-form" value={query} onChange={handleChange} />
+        <input className="search-query-form" value={query} onChange={handleChange} ref={inputRef} />
       </form>
       {initialQuery ? <Result query={initialQuery} /> : <Empty text="검색어를 입력해주세요 🧐" />}
     </S.Container>
