@@ -3,6 +3,7 @@ import { RouteComponentProps } from "react-router";
 import styled from "styled-components";
 
 import { Color } from "../../../constants/color";
+import { Media } from "../../../constants/media";
 
 import { useSearchQueryForm } from "../../../hooks/search/useSearchQueryForm";
 
@@ -71,6 +72,12 @@ const S = {
         outline: none;
 
         font-size: 2rem;
+      }
+    }
+
+    ${Media.Mobile} {
+      > form {
+        width: 100%;
       }
     }
   `,
