@@ -4,6 +4,7 @@ import { RouteComponentProps } from "react-router";
 import { Home, HomePlaceholder } from "../containers/main/Home";
 import { PostShow, PostShowPlaceholder } from "../containers/post/PostShow";
 import { Category, CategoryPlaceholder } from "../containers/post/CategoryPostList";
+import { Search, SearchPlaceholder } from "../containers/search/Search";
 
 export interface RouteSpec {
   path: string | string[];
@@ -30,5 +31,11 @@ export const routes: RouteSpec[] = [
     exact: true,
     component: Category,
     placeholder: CategoryPlaceholder,
+  },
+  {
+    path: "/search/:query?",
+    exact: true,
+    component: Search,
+    placeholder: SearchPlaceholder,
   },
 ];
