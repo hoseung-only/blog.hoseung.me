@@ -1,10 +1,12 @@
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import { SWRConfig } from "swr";
 
 import { UserIdContextProvider } from "./contexts/UserId";
 import { APIClientContextProvider } from "./contexts/APIClient";
+
+import { history } from "./helpers/common/history";
 
 import { Header } from "./components/common/Header";
 import { Page } from "./components/common/Page";
@@ -90,7 +92,7 @@ const S = {
 };
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Router history={history}>
     <SWRConfig
       value={{
         revalidateOnFocus: false,
@@ -112,6 +114,6 @@ ReactDOM.render(
         </APIClientContextProvider>
       </UserIdContextProvider>
     </SWRConfig>
-  </BrowserRouter>,
+  </Router>,
   document.getElementById("root")
 );
