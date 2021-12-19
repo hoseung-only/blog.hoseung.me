@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@hoseung-only/blog-api-client": "^1.12.1",
+    "@hoseung-only/blog-api-client": "^1.12.2",
     "dayjs": "^1.10.6",
     "history": "^4.10.1",
     "lodash": "^4.17.21",
