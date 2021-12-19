@@ -6,7 +6,7 @@ import { PostListItem, PostListItemPlaceholder } from "./ListItem";
 
 import { Media } from "../../../constants/media";
 
-export function PostList({ posts }: { posts: Models.PostShow[] }) {
+export function PostList({ posts }: { posts: Models.Post[] }) {
   return (
     <S.Grid>
       {posts.map((post) => (

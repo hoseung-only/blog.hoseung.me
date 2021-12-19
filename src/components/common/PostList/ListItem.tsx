@@ -13,7 +13,7 @@ import { Skeleton } from "../Skeleton";
 import { Color } from "../../../constants/color";
 import { Media } from "../../../constants/media";
 
-export function PostListItem({ post }: { post: Models.PostShow }) {
+export function PostListItem({ post }: { post: Models.Post }) {
   return (
     <S.Container to={`/posts/${post.id}`}>
       {post.coverImageURL ? (
