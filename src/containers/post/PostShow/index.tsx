@@ -6,6 +6,7 @@ import { usePost } from "../../../hooks/post/usePost";
 import { Header, HeaderPlaceholder } from "../../../components/post/Header";
 import { ResponsiveBlock } from "../../../components/common/ResponsiveBlock";
 import { Markdown } from "../../../components/post/Markdown";
+import { Meta } from "../../../components/common/Meta";
 import { Skeleton } from "../../../components/common/Skeleton";
 
 import { Media } from "../../../constants/media";
@@ -15,17 +16,25 @@ export function PostShow() {
   const post = usePost(postId);
 
   return (
-    <S.Container>
-      <Header title={post.title} createdAt={post.createdAt} viewCount={post.viewCount} />
-      {post.coverImageURL && (
-        <ResponsiveBlock width={4} height={2}>
-          <img className="cover-image" src={post.coverImageURL} alt="" />
-        </ResponsiveBlock>
-      )}
-      <div className="content">
-        <Markdown content={post.content} />
-      </div>
-    </S.Container>
+    <>
+      <Meta
+        title={`${post.title} | 장호승 개발 블로그`}
+        description={post.summary}
+        url={`https://blog.hoseung.me/posts/${post.id}`}
+        image={post.coverImageURL}
+      />
+      <S.Container>
+        <Header title={post.title} createdAt={post.createdAt} viewCount={post.viewCount} />
+        {post.coverImageURL && (
+          <ResponsiveBlock width={4} height={2}>
+            <img className="cover-image" src={post.coverImageURL} alt="" />
+          </ResponsiveBlock>
+        )}
+        <div className="content">
+          <Markdown content={post.content} />
+        </div>
+      </S.Container>
+    </>
   );
 }
 
