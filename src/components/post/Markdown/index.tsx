@@ -9,6 +9,7 @@ import { TableBlock } from "./renderers/TableBlock";
 import { ImageBlock } from "./renderers/ImageBlock";
 import { BlockquoteBlock } from "./renderers/BlockquoteBlock";
 import { UListBlock } from "./renderers/UListBlock";
+import { OListBlock } from "./renderers/OListBlock";
 import { LIBlock } from "./renderers/LIBlock";
 
 export function Markdown({ content }: { content: string }) {
@@ -23,6 +24,7 @@ export function Markdown({ content }: { content: string }) {
           img: ImageBlock,
           blockquote: BlockquoteBlock,
           ul: UListBlock,
+          ol: OListBlock,
           li: LIBlock,
         }}
       >

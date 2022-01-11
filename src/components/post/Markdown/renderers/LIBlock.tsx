@@ -5,10 +5,8 @@ export function LIBlock(props: any) {
 }
 
 const S = {
-  Container: styled.ul`
+  Container: styled.li`
     display: list-item;
-
-    list-style: disc;
 
     &:not(:last-child) {
       margin-bottom: 8px;
