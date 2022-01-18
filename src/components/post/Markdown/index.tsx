@@ -11,6 +11,7 @@ import { BlockquoteBlock } from "./renderers/BlockquoteBlock";
 import { UListBlock } from "./renderers/UListBlock";
 import { OListBlock } from "./renderers/OListBlock";
 import { LIBlock } from "./renderers/LIBlock";
+import { ParagraphBlock } from "./renderers/ParagraphBlock";
 
 export function Markdown({ content }: { content: string }) {
   return (
@@ -26,6 +27,7 @@ export function Markdown({ content }: { content: string }) {
           ul: UListBlock,
           ol: OListBlock,
           li: LIBlock,
+          p: ParagraphBlock,
         }}
       >
         {content}
